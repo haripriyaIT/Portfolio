@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* ── Colour palette ─────────────────────────────────────────────────── */
+  --color-background: #050B18;
+  --color-card:       #0A1628;
+  --color-surface:    #0F1E35;
+  --color-primary:    #3B82F6;
+  --color-secondary:  #06B6D4;
+  --color-violet:     #8B5CF6;
+  --color-purple:     #A855F7;
+  --color-magenta:    #EC4899;
+  --color-text:       #F0F4FF;
+  --color-muted:      #6B7FA3;
+
+  /* ── Typography ─────────────────────────────────────────────────────── */
+  --font-sans:    'Inter', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-mono:    'Space Grotesk', monospace;
+}
+
+/* ─── Global resets ────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* ─── Glassmorphism utilities ───────────────────────────────────────────────── */
+.glass {
+  background: rgba(10, 22, 40, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow:
+    0 0 30px rgba(139, 92, 246, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-strong {
+  background: rgba(10, 22, 40, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  box-shadow:
+    0 0 40px rgba(139, 92, 246, 0.10),
+    0 0 80px rgba(168, 85, 247, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ─── 3D Floating Glass Panels ──────────────────────────────────────────────── */
+.glass-panel-3d {
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.glass-panel-3d:hover {
+  box-shadow:
+    0 20px 50px -10px rgba(139, 92, 246, 0.25),
+    0 0 30px rgba(6, 182, 212, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12);
+}
+
+.glass-reflection {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-reflection::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.04),
+    rgba(139, 92, 246, 0.08),
+    rgba(6, 182, 212, 0.06),
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  transition: left 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.glass-reflection:hover::after {
+  left: 150%;
+}
+
+/* ─── Neon border utilities ─────────────────────────────────────────────────── */
+.neon-border-violet {
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  box-shadow:
+    0 0 20px rgba(139, 92, 246, 0.2),
+    inset 0 0 20px rgba(139, 92, 246, 0.03);
+}
+
+.neon-border-cyan {
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  box-shadow:
+    0 0 20px rgba(6, 182, 212, 0.15),
+    inset 0 0 20px rgba(6, 182, 212, 0.03);
+}
+
+/* ─── Glow text utilities ───────────────────────────────────────────────────── */
+.glow-text-violet {
+  text-shadow:
+    0 0 20px rgba(139, 92, 246, 0.5),
+    0 0 40px rgba(139, 92, 246, 0.25);
+}
+
+.glow-text-cyan {
+  text-shadow:
+    0 0 20px rgba(6, 182, 212, 0.5),
+    0 0 40px rgba(6, 182, 212, 0.25);
+}
+
+/* ─── Glitter / Shimmer name effect ─────────────────────────────────────────── */
+@keyframes shimmer-sweep {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes glitter-flicker {
+  0%, 100% { opacity: 1;   transform: scale(1)   rotate(0deg); }
+  20%       { opacity: 0.3; transform: scale(0.5) rotate(72deg); }
+  40%       { opacity: 1;   transform: scale(1.3) rotate(144deg); }
+  60%       { opacity: 0.2; transform: scale(0.7) rotate(216deg); }
+  80%       { opacity: 0.9; transform: scale(1.1) rotate(288deg); }
+}
+
+@keyframes sparkle-float {
+  0%   { transform: translateY(0px)  scale(1);   opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(-20px) scale(0);  opacity: 0; }
+}
+
+.glitter-text {
+  background: linear-gradient(
+    90deg,
+    #c084fc 0%,
+    #e0f2fe 20%,
+    #67e8f9 35%,
+    #ffffff 50%,
+    #f0abfc 65%,
+    #e0f2fe 80%,
+    #a78bfa 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-sweep 3s linear infinite;
+  filter: drop-shadow(0 0 12px rgba(167, 139, 250, 0.9))
+          drop-shadow(0 0 30px rgba(6, 182, 212, 0.5));
+}
+
+.sparkle-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: glitter-flicker 1.5s ease-in-out infinite;
+}
+
+.sparkle-star {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  animation: sparkle-float 2s ease-out infinite;
+}
+
+.sparkle-star::before,
+.sparkle-star::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+/* ─── Custom scrollbar ─────────────────────────────────────────────────────── */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(139, 92, 246, 0.05);
+  border-radius: 2px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 2px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+/* ─── Full 360-degree Orbit Revolutions ────────────────────────────────────── */
+@keyframes orbit-revolve {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-revolve-counter {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}

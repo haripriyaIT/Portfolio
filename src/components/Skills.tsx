@@ -1,5 +1,69 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import {
+  FiCode,
+  FiLayout,
+  FiCpu,
+  FiDatabase,
+  FiTool,
+  FiLayers,
+  FiActivity,
+  FiTerminal,
+} from 'react-icons/fi';
+
+/* ─── 7 Skill Categories from Resume ─────────────────────────────────────── */
+
+export const RESUME_SKILL_CATEGORIES = [
+  {
+    id: 'languages',
+    title: 'Languages',
+    icon: <FiCode className="text-violet-400" size={22} />,
+    color: '#8B5CF6',
+    skills: ['Java', 'Python', 'C', 'JavaScript'],
+  },
+  {
+    id: 'frontend',
+    title: 'Frontend',
+    icon: <FiLayout className="text-cyan-400" size={22} />,
+    color: '#06B6D4',
+    skills: ['HTML', 'CSS', 'React.js'],
+  },
+  {
+    id: 'cs-fundamentals',
+    title: 'CS Fundamentals',
+    icon: <FiCpu className="text-purple-400" size={22} />,
+    color: '#A855F7',
+    skills: ['DSA', 'OOPS', 'DBMS', 'Operating Systems', 'Computer Networks', 'JDBC'],
+  },
+  {
+    id: 'databases',
+    title: 'Databases',
+    icon: <FiDatabase className="text-sky-400" size={22} />,
+    color: '#38BDF8',
+    skills: ['MySQL', 'MongoDB'],
+  },
+  {
+    id: 'developer-tools',
+    title: 'Developer Tools',
+    icon: <FiTool className="text-pink-400" size={22} />,
+    color: '#EC4899',
+    skills: ['Git', 'GitHub', 'Postman', 'Antigravity', 'Figma', 'VS Code', 'Canva'],
+  },
+  {
+    id: 'known-libraries',
+    title: 'Known Libraries',
+    icon: <FiLayers className="text-violet-300" size={22} />,
+    color: '#C084FC',
+    skills: ['TensorFlow', 'OpenCV', 'Matplotlib', 'Pandas', 'Scikit-learn', 'Numpy'],
+  },
+  {
+    id: 'machine-learning',
+    title: 'Machine Learning',
+    icon: <FiActivity className="text-emerald-400" size={22} />,
+    color: '#10B981',
+    skills: ['Machine Learning algorithms', 'Deep Learning (CNN)', 'Generative AI'],
+  },
+];
 
 /* ─── Orbit configuration ─────────────────────────────────────────────────── */
 
@@ -60,16 +124,13 @@ const DEFAULT_ORBITS: OrbitConfig[] = [
         ),
       },
       {
-        id: 'tailwind',
-        label: 'Tailwind CSS',
-        type: 'Styling',
-        color: '#38BDF8',
+        id: 'html-css',
+        label: 'HTML & CSS',
+        type: 'Frontend',
+        color: '#E34F26',
         svg: (
-          <svg viewBox="0 0 24 24" className="w-5 h-5">
-            <path
-              fill="#38BDF8"
-              d="M12 6c-4 0-6 2-7 6 1.5-2 3.25-2.75 5.25-2.25C11.4 10 12.2 11 13 12c1.3 1.7 2.5 2.5 5 2.5 4 0 6-2 7-6-1.5 2-3.25 2.75-5.25 2.25C18.6 10 17.8 9 17 8c-1.3-1.7-2.5-2-5-2z"
-            />
+          <svg viewBox="0 0 24 24" className="w-5 h-5" fill="#E34F26">
+            <path d="M12 2L3 5v14l9 3 9-3V5l-9-3zm0 2.2l6.8 2.3v10.8L12 19.4l-6.8-2.1V6.5L12 4.2z" />
           </svg>
         ),
       },
@@ -77,7 +138,7 @@ const DEFAULT_ORBITS: OrbitConfig[] = [
   },
   {
     id: 'programming',
-    name: 'Programming',
+    name: 'Languages & DB',
     radiusPx: 285,
     speed: 30,
     ringColor: 'rgba(139, 92, 246, 0.35)',
@@ -137,9 +198,9 @@ const DEFAULT_ORBITS: OrbitConfig[] = [
         ),
       },
       {
-        id: 'sql',
-        label: 'SQL',
-        type: 'Database',
+        id: 'mysql-mongo',
+        label: 'MySQL / MongoDB',
+        type: 'Databases',
         color: '#4479A1',
         svg: (
           <svg viewBox="0 0 24 24" className="w-5 h-5">
@@ -163,7 +224,7 @@ const DEFAULT_ORBITS: OrbitConfig[] = [
   },
   {
     id: 'aiml',
-    name: 'AI / ML',
+    name: 'AI & Machine Learning',
     radiusPx: 395,
     speed: 42,
     ringColor: 'rgba(236, 72, 153, 0.35)',
@@ -184,21 +245,15 @@ const DEFAULT_ORBITS: OrbitConfig[] = [
         ),
       },
       {
-        id: 'pytorch',
-        label: 'PyTorch',
-        type: 'Deep Learning',
-        color: '#EE4C2C',
+        id: 'opencv',
+        label: 'OpenCV',
+        type: 'Computer Vision',
+        color: '#5C3EE8',
         svg: (
           <svg viewBox="0 0 24 24" className="w-5 h-5">
-            <circle
-              cx="12"
-              cy="12"
-              r="7"
-              fill="none"
-              stroke="#EE4C2C"
-              strokeWidth="2"
-            />
-            <circle cx="17.5" cy="6.5" r="2" fill="#EE4C2C" />
+            <circle cx="9" cy="8" r="4" fill="none" stroke="#5C3EE8" strokeWidth="2" />
+            <circle cx="15" cy="8" r="4" fill="none" stroke="#5C3EE8" strokeWidth="2" />
+            <circle cx="12" cy="15" r="4" fill="none" stroke="#5C3EE8" strokeWidth="2" />
           </svg>
         ),
       },
@@ -227,8 +282,8 @@ const DEFAULT_ORBITS: OrbitConfig[] = [
         ),
       },
       {
-        id: 'numpy',
-        label: 'NumPy',
+        id: 'numpy-pandas',
+        label: 'NumPy / Pandas',
         type: 'Data Science',
         color: '#4D77CF',
         svg: (
@@ -237,6 +292,17 @@ const DEFAULT_ORBITS: OrbitConfig[] = [
               d="M5 5h4l6 10V5h4v14h-4L9 9v10H5z"
               fill="#4D77CF"
             />
+          </svg>
+        ),
+      },
+      {
+        id: 'genai',
+        label: 'Generative AI',
+        type: 'LLMs & Prompting',
+        color: '#A855F7',
+        svg: (
+          <svg viewBox="0 0 24 24" className="w-5 h-5">
+            <polygon points="12,2 15,9 22,12 15,15 12,22 9,15 2,12 9,9" fill="#A855F7" />
           </svg>
         ),
       },
@@ -249,6 +315,7 @@ const DEFAULT_ORBITS: OrbitConfig[] = [
 const Skills = () => {
   const [hoveredOrbitId, setHoveredOrbitId] = useState<string | null>(null);
   const [hoveredItemId, setHoveredItemId] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   return (
     <section id="skills" className="py-24 relative overflow-hidden" style={{ background: 'rgba(5,11,24,0.85)' }}>
@@ -265,7 +332,7 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-14 text-center"
         >
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-text mb-4">
             Technical{' '}
@@ -276,8 +343,8 @@ const Skills = () => {
           <div className="h-1 w-24 bg-gradient-to-r from-violet-500 via-cyan-400 to-pink-500 rounded-full mx-auto" />
         </motion.div>
 
-        {/* Orbit Showcase Layout */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
+        {/* ── PART 1: 3D Orbit Visualization ─────────────────────────── */}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16 mb-20">
 
           {/* Responsive Orbital Viewport Container */}
           <div className="w-full max-w-[840px] aspect-square flex items-center justify-center relative select-none">
@@ -360,7 +427,6 @@ const Skills = () => {
                     {orbit.items.map((item, idx) => {
                       const totalItems = orbit.items.length;
                       const angleRad = (idx * 2 * Math.PI) / totalItems;
-                      // Calculate position on the circle (radius R from center R, R)
                       const x = orbit.radiusPx + orbit.radiusPx * Math.cos(angleRad);
                       const y = orbit.radiusPx + orbit.radiusPx * Math.sin(angleRad);
                       const isItemHovered = hoveredItemId === item.id;
@@ -432,13 +498,13 @@ const Skills = () => {
             </motion.div>
           </div>
 
-          {/* Side Legend & Category Breakdown */}
+          {/* Side Orbit Inspector Cards */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex flex-col gap-6 w-full max-w-sm"
+            className="flex flex-col gap-5 w-full max-w-sm"
           >
             {DEFAULT_ORBITS.map((orbit) => {
               const isSelected = hoveredOrbitId === orbit.id;
@@ -473,11 +539,11 @@ const Skills = () => {
                     </span>
                   </div>
 
-                  <div className="flex flex-wrap gap-2.5">
+                  <div className="flex flex-wrap gap-2">
                     {orbit.items.map((item) => (
                       <span
                         key={item.id}
-                        className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium text-white/90 border transition-all duration-200"
+                        className="flex items-center gap-2 px-2.5 py-1 rounded-lg text-xs font-medium text-white/90 border transition-all duration-200"
                         style={{
                           background: hoveredItemId === item.id ? `${item.color}33` : `${item.color}15`,
                           borderColor: hoveredItemId === item.id ? item.color : `${item.color}44`,
@@ -501,6 +567,90 @@ const Skills = () => {
           </motion.div>
 
         </div>
+
+        {/* ── PART 2: All 7 Categories from Resume ─────────────────────── */}
+        <div className="mt-8">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl md:text-3xl font-heading font-bold text-text mb-2">
+              Comprehensive{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400">
+                Skills Directory
+              </span>
+            </h3>
+            <p className="text-muted text-sm font-mono tracking-wide">
+              All 7 core domains detailed directly from my resume
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {RESUME_SKILL_CATEGORIES.map((cat, idx) => {
+              const isSelected = selectedCategory === cat.id;
+              return (
+                <motion.div
+                  key={cat.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  whileHover={{ y: -5 }}
+                  onMouseEnter={() => setSelectedCategory(cat.id)}
+                  onMouseLeave={() => setSelectedCategory(null)}
+                  className="glass neon-border-violet rounded-2xl p-6 transition-all duration-300 relative group overflow-hidden"
+                  style={{
+                    borderColor: isSelected ? `${cat.color}99` : 'rgba(139,92,246,0.25)',
+                    boxShadow: isSelected ? `0 0 35px ${cat.color}33` : 'none',
+                  }}
+                >
+                  {/* Subtle corner glow */}
+                  <div
+                    className="absolute -top-8 -right-8 w-24 h-24 rounded-full blur-2xl opacity-20 pointer-events-none transition-opacity duration-300 group-hover:opacity-40"
+                    style={{ background: cat.color }}
+                  />
+
+                  {/* Header */}
+                  <div className="flex items-center space-x-3 mb-5 pb-3 border-b border-white/10">
+                    <div
+                      className="p-2.5 rounded-xl border transition-all duration-300"
+                      style={{
+                        background: `${cat.color}15`,
+                        borderColor: `${cat.color}44`,
+                      }}
+                    >
+                      {cat.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-heading font-bold text-lg text-text group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-violet-300 group-hover:to-cyan-300 transition-all">
+                        {cat.title}
+                      </h4>
+                      <span className="text-[11px] font-mono text-violet-300/60">
+                        {cat.skills.length} skills
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Skills Badges */}
+                  <div className="flex flex-wrap gap-2">
+                    {cat.skills.map((skill, sIdx) => (
+                      <span
+                        key={sIdx}
+                        className="px-3 py-1.5 rounded-lg text-xs font-medium border transition-all duration-200"
+                        style={{
+                          background: isSelected ? `${cat.color}22` : 'rgba(139, 92, 246, 0.08)',
+                          borderColor: isSelected ? `${cat.color}66` : 'rgba(139, 92, 246, 0.2)',
+                          color: isSelected ? '#FFFFFF' : '#E2E8F0',
+                          boxShadow: isSelected ? `0 0 10px ${cat.color}44` : 'none',
+                        }}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
       </div>
     </section>
   );

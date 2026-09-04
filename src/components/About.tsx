@@ -7,31 +7,31 @@ const aboutCards = [
   {
     title: 'Who I Am',
     icon: <FiUser className="text-violet-400" size={24} />,
-    description: 'A passionate Information Technology student specializing in AI & Machine Learning, dedicated to building intelligent, data-driven solutions.',
+    description: 'Enthusiastic Information Technology student (B.Tech IT, 8.38 CGPA) with expertise in Python, Java, SQL, and Machine Learning. Experienced in developing real-world software and ML systems.',
   },
   {
     title: 'Current Focus',
     icon: <FiTarget className="text-cyan-400" size={24} />,
-    description: 'Developing robust machine learning models, exploring neural architectures, and creating scalable software applications.',
+    description: 'Developing Deep Learning & CNN models, exploring Generative AI & LLMs, and engineering full-stack AI web platforms with cloud deployments on GCP.',
   },
   {
     title: 'Career Goal',
     icon: <FiBriefcase className="text-purple-400" size={24} />,
-    description: 'To work as an AI/ML Engineer at a top-tier tech company, solving complex real-world challenges through intelligent software.',
+    description: 'Seeking opportunities as a Software Developer or Machine Learning Engineer to build transformative intelligent applications and solve complex challenges.',
   },
   {
-    title: 'Education',
+    title: 'Education & Qualifications',
     icon: <FiBookOpen className="text-cyan-300" size={24} />,
-    description: 'Currently pursuing my B.Tech in Information Technology (Third Year). Building a strong foundation in computer science and mathematics.',
+    description: 'B.Tech IT at K.S.R. College of Engineering (Autonomous, Current, 8.38 CGPA). HSC +2 (84.67%) & SSLC (91.2%) from Reliance Matric Higher Secondary School.',
   },
 ];
 
 const learningItems = [
-  { name: 'Machine Learning', icon: <FiCpu size={20} /> },
-  { name: 'Deep Learning', icon: <FiLayers size={20} /> },
-  { name: 'Computer Vision', icon: <FiEye size={20} /> },
-  { name: 'TensorFlow', icon: <SiTensorflow size={20} /> },
-  { name: 'Data Structures', icon: <FiDatabase size={20} /> },
+  { name: 'Generative AI & LLMs', icon: <FiCpu size={20} /> },
+  { name: 'Deep Learning (CNN)', icon: <FiLayers size={20} /> },
+  { name: 'Computer Vision & OpenCV', icon: <FiEye size={20} /> },
+  { name: 'TensorFlow & Keras', icon: <SiTensorflow size={20} /> },
+  { name: 'Full-Stack Java & React', icon: <FiDatabase size={20} /> },
 ];
 
 const containerVariants = {

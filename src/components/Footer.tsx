@@ -15,10 +15,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: <FiGithub size={20} />, url: 'https://github.com/haripriya', label: 'GitHub' },
-    { icon: <FiLinkedin size={20} />, url: 'https://linkedin.com/in/haripriya-manickam', label: 'LinkedIn' },
-    { icon: <FiTwitter size={20} />, url: 'https://twitter.com/haripriya', label: 'Twitter' },
-    { icon: <FiMail size={20} />, url: 'mailto:haripriya@email.com', label: 'Email' },
+    { icon: <FiGithub size={20} />, url: 'https://github.com/haripriyaIT', label: 'GitHub' },
+    { icon: <FiLinkedin size={20} />, url: 'https://linkedin.com/in/haripriya2703', label: 'LinkedIn' },
+    { icon: <FiMail size={20} />, url: 'mailto:haripriya030609@gmail.com', label: 'Email' },
   ];
 
   return (
@@ -46,10 +45,10 @@ const Footer = () => {
               duration={500}
               className="text-2xl font-heading font-bold cursor-pointer bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent hover:from-violet-300 hover:to-cyan-300 transition-all inline-block mb-4"
             >
-              Haripriya Manickam.
+              Haripriya M.
             </Link>
             <p className="text-muted leading-relaxed max-w-sm">
-              Building intelligent software and solving real-world problems through machine learning, deep learning, and engineering.
+              ML Engineer &amp; Full-Stack AI Developer building intelligent software and machine learning solutions.
             </p>
           </div>
 

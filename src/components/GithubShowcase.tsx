@@ -4,44 +4,44 @@ import { FiGithub, FiStar, FiGitBranch, FiBook, FiExternalLink, FiPieChart, FiAc
 
 const repositories = [
   {
-    name: 'deep-learning-toolbox',
-    description: 'A collection of custom PyTorch and TensorFlow models for advanced computer vision tasks.',
+    name: 'Potato-Leaf-Disease-Prediction',
+    description: 'CNN model trained on 15,000+ images with 97% accuracy, deployed on GCP with Postman validation.',
     language: 'Python',
     languageColor: '#3572A5',
     stars: 124,
     forks: 32,
     type: 'Pinned',
-    url: 'https://github.com/haripriya/deep-learning-toolbox',
+    url: 'https://github.com/haripriyaIT/Portfolio',
   },
   {
-    name: 'auto-rag-pipeline',
-    description: 'Automated Retrieval-Augmented Generation pipeline integrating LangChain and local LLMs.',
-    language: 'Jupyter Notebook',
-    languageColor: '#DA5B0B',
+    name: 'Hospital-Management-System',
+    description: 'Web healthcare platform with role dashboards (Admin, Doctor, Patient) built using Java, JDBC & MySQL.',
+    language: 'Java',
+    languageColor: '#b07219',
     stars: 89,
     forks: 14,
     type: 'Pinned',
-    url: 'https://github.com/haripriya/auto-rag-pipeline',
+    url: 'https://github.com/haripriyaIT/Portfolio',
   },
   {
-    name: 'medical-image-classifier',
-    description: 'CNN architecture optimized for detecting anomalies in MRI scans with 95% accuracy.',
-    language: 'Python',
-    languageColor: '#3572A5',
+    name: 'Portfolio',
+    description: 'Interactive AI & ML Engineer 3D Quantum Portfolio built with React, Three.js, R3F & Tailwind CSS.',
+    language: 'TypeScript',
+    languageColor: '#3178c6',
     stars: 45,
     forks: 8,
     type: 'Latest',
-    url: 'https://github.com/haripriya/medical-image-classifier',
+    url: 'https://github.com/haripriyaIT/Portfolio',
   },
   {
-    name: 'portfolio-v2',
-    description: 'My personal portfolio built with React, Vite, Tailwind CSS, and Framer Motion.',
-    language: 'TypeScript',
-    languageColor: '#3178c6',
-    stars: 12,
-    forks: 2,
+    name: 'Generative-AI-Workflows',
+    description: 'Python-based AI workflows exploring LLM prompting, generative models, and intelligent automation.',
+    language: 'Python',
+    languageColor: '#3572A5',
+    stars: 38,
+    forks: 6,
     type: 'Latest',
-    url: 'https://github.com/haripriya/portfolio-v2',
+    url: 'https://github.com/haripriyaIT',
   },
 ];
 
@@ -97,12 +97,12 @@ const GithubShowcase = () => {
             <div className="h-1 w-20 bg-gradient-to-r from-violet-500 to-cyan-400 rounded-full" />
           </div>
           <a
-            href="https://github.com/haripriya"
+            href="https://github.com/haripriyaIT"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-2 px-5 py-2.5 glass neon-border-violet rounded-lg text-text hover:text-violet-300 hover:border-violet-400/60 transition-all font-medium text-sm w-fit"
           >
-            Follow @haripriya <FiExternalLink />
+            Follow @haripriyaIT <FiExternalLink />
           </a>
         </motion.div>
 

@@ -6,17 +6,24 @@ import cert2 from '../assets/cert2.png';
 
 const certifications = [
   {
-    title: 'Deep Learning Specialization',
-    organization: 'DeepLearning.AI',
-    date: 'August 2023',
+    title: 'Paper Presentation at IEEE Conference',
+    organization: 'University of Hyderabad',
+    date: 'IEEE Conference',
     image: cert1,
     url: '#',
   },
   {
-    title: 'TensorFlow Developer Certificate',
-    organization: 'Google',
-    date: 'January 2024',
+    title: 'TCS iON Career Edge – Young Professional',
+    organization: 'Tata Consultancy Services (TCS)',
+    date: 'Professional Program',
     image: cert2,
+    url: '#',
+  },
+  {
+    title: 'Silver Certificate – Ignite Bootcamp Full',
+    organization: 'Wadhwani Foundation',
+    date: 'Bootcamp Certification',
+    image: cert1,
     url: '#',
   },
 ];
@@ -44,7 +51,7 @@ const Certifications = () => {
           <div className="h-1 w-20 bg-gradient-to-r from-violet-500 to-cyan-400 rounded-full mx-auto" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {certifications.map((cert, index) => (
             <motion.div
               key={index}

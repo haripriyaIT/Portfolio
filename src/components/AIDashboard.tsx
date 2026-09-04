@@ -7,21 +7,21 @@ import {
 
 const AIDashboard = () => {
   const papers = [
-    { title: 'Attention Is All You Need', authors: 'Vaswani et al.', status: 'Core Concepts' },
-    { title: 'LoRA: Low-Rank Adaptation', authors: 'Hu et al.', status: 'Fine-tuning' },
-    { title: 'Retrieval-Augmented Generation', authors: 'Lewis et al.', status: 'Architecture' },
+    { title: 'IEEE Conference Research Paper', authors: 'Univ. of Hyderabad', status: 'Presented' },
+    { title: 'Generative AI & LLM Workflows', authors: 'Gateway Software', status: 'Internship' },
+    { title: 'Deep Learning & CNN Applications', authors: 'Litz Tech & TF', status: 'Applied ML' },
   ];
 
   const trainingLogs = [
-    { time: '10m ago', event: 'ResNet-50 v2 training epoch 48 completed', status: 'success' },
-    { time: '2h ago', event: 'Val loss decreased to 0.0421', status: 'optimal' },
-    { time: '5h ago', event: 'Data ingestion pipeline initialized', status: 'info' },
+    { time: 'Validated', event: 'CNN trained on 15,000+ images across 3 classes', status: 'success' },
+    { time: 'Optimized', event: 'Achieved 97% validation accuracy with augmentation', status: 'optimal' },
+    { time: 'Deployed', event: 'Cloud API deployed on GCP with Postman testing', status: 'info' },
   ];
 
   const roadmap = [
-    { step: '01', title: 'Classical ML', desc: 'Scikit-Learn, Pandas', completed: true },
-    { step: '02', title: 'Deep Learning Foundations', desc: 'CNNs, PyTorch, TF', completed: true },
-    { step: '03', title: 'Large Language Models', desc: 'Transformers, RAG, Fine-Tuning', completed: false },
+    { step: '01', title: 'Core CS & Languages', desc: 'Java, Python, C, SQL, DSA, OOPs', completed: true },
+    { step: '02', title: 'Deep Learning & CNN', desc: 'TensorFlow, OpenCV, Scikit-learn, GCP', completed: true },
+    { step: '03', title: 'Generative AI & LLMs', desc: 'Prompt Engineering, AI Workflows', completed: true },
   ];
 
   return (
@@ -73,21 +73,21 @@ const AIDashboard = () => {
                 <FiPlay className="text-violet-400 animate-pulse" />
               </div>
               <h3 className="text-2xl font-bold font-heading text-text mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-violet-400 group-hover:to-cyan-400 transition-all">
-                Nexus RAG Agent
+                Potato Leaf Disease AI
               </h3>
               <p className="text-muted text-sm leading-relaxed mb-6">
-                Developing a modular retrieval-augmented generation engine utilizing local embedding models and semantic caching layers.
+                CNN-based deep learning classifier trained on 15,000+ agricultural images across 3 classes, achieving 97% accuracy with GCP cloud deployment.
               </p>
 
               <div className="bg-[#050B18]/80 border border-violet-500/20 rounded-xl p-4 font-mono text-xs">
                 <div className="flex justify-between text-muted mb-2">
-                  <span>Current Epoch:</span>
-                  <span className="text-text">42 / 100</span>
+                  <span>Validation Accuracy:</span>
+                  <span className="text-cyan-400 font-bold">97.0%</span>
                 </div>
                 <div className="w-full bg-[#050B18] h-1.5 rounded-full overflow-hidden">
                   <div
                     className="bg-gradient-to-r from-violet-500 to-cyan-400 h-full rounded-full"
-                    style={{ width: '42%' }}
+                    style={{ width: '97%' }}
                   />
                 </div>
               </div>

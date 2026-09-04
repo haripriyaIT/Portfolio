@@ -79,8 +79,8 @@ const Navbar = () => {
             </Link>
           ))}
           <a
-            href="/resume.pdf"
-            download
+            href="/Haripriya_Resume.pdf"
+            download="Haripriya_Resume.pdf"
             className="ml-4 px-4 py-2 rounded-md bg-gradient-to-r from-violet-600 to-purple-600 text-white border-0 hover:from-violet-500 hover:to-purple-500 transition-all flex items-center space-x-2 text-sm font-medium shadow-[0_0_20px_rgba(139,92,246,0.35)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)]"
           >
             <FiDownload />
@@ -126,8 +126,8 @@ const Navbar = () => {
                 </Link>
               ))}
               <a
-                href="/resume.pdf"
-                download
+                href="/Haripriya_Resume.pdf"
+                download="Haripriya_Resume.pdf"
                 className="mt-4 px-4 py-3 rounded-md bg-gradient-to-r from-violet-600 to-purple-600 text-white text-center font-medium flex items-center justify-center space-x-2 shadow-[0_0_20px_rgba(139,92,246,0.35)]"
               >
                 <FiDownload />

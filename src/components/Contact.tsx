@@ -1,49 +1,59 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiMail, FiLinkedin, FiGithub, FiMapPin, FiDownload, FiArrowRight } from 'react-icons/fi';
+import { FiMail, FiLinkedin, FiGithub, FiMapPin, FiDownload, FiArrowRight, FiPhone } from 'react-icons/fi';
 
 const contactMethods = [
   {
     title: 'Email',
-    value: 'haripriya@email.com',
+    value: 'haripriya030609@gmail.com',
     icon: <FiMail size={24} />,
-    url: 'mailto:haripriya@email.com',
+    url: 'mailto:haripriya030609@gmail.com',
     borderHover: 'hover:border-violet-400/60',
     iconGlow: 'group-hover:text-violet-400',
     bg: 'group-hover:bg-violet-500/10',
   },
   {
-    title: 'LinkedIn',
-    value: 'Connect on LinkedIn',
-    icon: <FiLinkedin size={24} />,
-    url: 'https://linkedin.com/in/haripriya-manickam',
+    title: 'Phone',
+    value: '+91 8072402147',
+    icon: <FiPhone size={24} />,
+    url: 'tel:+918072402147',
     borderHover: 'hover:border-cyan-400/60',
     iconGlow: 'group-hover:text-cyan-400',
     bg: 'group-hover:bg-cyan-500/10',
   },
   {
-    title: 'GitHub',
-    value: 'Follow my Projects',
-    icon: <FiGithub size={24} />,
-    url: 'https://github.com/haripriya',
+    title: 'LinkedIn',
+    value: 'in/haripriya2703',
+    icon: <FiLinkedin size={24} />,
+    url: 'https://linkedin.com/in/haripriya2703',
     borderHover: 'hover:border-purple-400/60',
     iconGlow: 'group-hover:text-purple-400',
     bg: 'group-hover:bg-purple-500/10',
   },
   {
+    title: 'GitHub',
+    value: 'github.com/haripriyaIT',
+    icon: <FiGithub size={24} />,
+    url: 'https://github.com/haripriyaIT',
+    borderHover: 'hover:border-violet-400/60',
+    iconGlow: 'group-hover:text-violet-400',
+    bg: 'group-hover:bg-violet-500/10',
+  },
+  {
     title: 'Location',
-    value: 'Available Worldwide',
+    value: 'Namakkal, Tamil Nadu, India',
     icon: <FiMapPin size={24} />,
-    url: 'https://maps.google.com',
+    url: 'https://maps.google.com/?q=Komarapalayam,Namakkal,Tamil+Nadu',
     borderHover: 'hover:border-cyan-300/60',
     iconGlow: 'group-hover:text-cyan-300',
     bg: 'group-hover:bg-cyan-300/10',
   },
   {
     title: 'Resume',
-    value: 'Download PDF',
+    value: 'Download Haripriya_Resume.pdf',
     icon: <FiDownload size={24} />,
-    url: '/resume.pdf',
+    url: '/Haripriya_Resume.pdf',
+    download: 'Haripriya_Resume.pdf',
     borderHover: 'hover:border-violet-300/60',
     iconGlow: 'group-hover:text-violet-300',
     bg: 'group-hover:bg-violet-300/10',
@@ -107,7 +117,8 @@ const Contact = () => {
               key={index}
               variants={itemVariants}
               href={method.url}
-              target="_blank"
+              download={method.download ? method.download : undefined}
+              target={method.download ? undefined : "_blank"}
               rel="noreferrer"
               className={`group flex flex-col items-center justify-center p-8 glass neon-border-violet rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(139,92,246,0.15)] ${method.borderHover}`}
             >

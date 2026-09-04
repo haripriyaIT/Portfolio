@@ -4,42 +4,37 @@ import { FiCode, FiTerminal, FiBriefcase, FiActivity, FiLayers, FiTarget } from 
 
 const timeline = [
   {
-    title: 'Started Programming',
-    date: '2021',
-    description: 'Began the journey with core computer science fundamentals, learning C and Java.',
-    icon: <FiCode size={18} />,
-  },
-  {
-    title: 'Built First Python Project',
-    date: '2022',
-    description: 'Transitioned to Python, automating tasks, building web scrapers, and learning data handling.',
-    icon: <FiTerminal size={18} />,
-  },
-  {
-    title: 'Generative AI Internship',
-    date: 'Mid 2023',
-    description: 'Worked on integrating LLMs into enterprise applications, focusing on prompt engineering and RAG pipelines.',
+    title: 'Generative AI Intern | Gateway Software Solutions',
+    date: '15-Day Internship',
+    description: 'Covered fundamentals of Generative AI, Large Language Models (LLMs), and prompt engineering. Gained hands-on exposure to Python-based AI workflows and practical applications of Generative AI in solving real-world problems.',
     icon: <FiBriefcase size={18} />,
   },
   {
-    title: 'Started Machine Learning',
-    date: 'Late 2023',
-    description: 'Dived into classical ML with Scikit-Learn and Pandas, exploring regression and classification models.',
+    title: 'AI & Machine Learning Intern | Litz Tech',
+    date: '15-Day Internship',
+    description: 'Gained practical knowledge of AI and ML algorithms and Deep Learning concepts. Worked on a deep learning project applying data preprocessing, model development, training, and evaluation using Python.',
     icon: <FiActivity size={18} />,
   },
   {
-    title: 'Deep Learning Projects',
-    date: '2024',
-    description: 'Focused on neural networks, building CNNs for computer vision using TensorFlow and Keras.',
+    title: 'Java Teaching Bootcamp | KSR Polytechnic College',
+    date: 'Achievement & Leadership',
+    description: 'Conducted a hands-on Java programming bootcamp for polytechnic students, covering core Java concepts and practical coding sessions to strengthen their programming fundamentals.',
+    icon: <FiTerminal size={18} />,
+  },
+  {
+    title: 'B.Tech Information Technology | K.S.R. College of Engineering',
+    date: 'Current • 8.38 CGPA',
+    description: 'Pursuing undergraduate degree in IT (Autonomous). Mastering Data Structures & Algorithms, OOPs, DBMS, Operating Systems, Computer Networks, and JDBC with hands-on development.',
     icon: <FiLayers size={18} />,
   },
   {
-    title: 'Seeking AI Internship',
-    date: 'Present',
-    description: 'Actively looking for opportunities to contribute to cutting-edge AI and Machine Learning projects.',
-    icon: <FiTarget size={18} />,
+    title: 'HSC (+2) & SSLC | Reliance Matric Higher Secondary School',
+    date: '2022 & 2024',
+    description: 'Completed HSC (+2) with 84.67% (2024) and SSLC with 91.2% (2022) under the Tamil Nadu State Board.',
+    icon: <FiCode size={18} />,
   },
 ];
+
 
 const Experience = () => {
   return (

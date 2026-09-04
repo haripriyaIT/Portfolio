@@ -78,11 +78,11 @@ const Hero = () => {
                   transition={{ duration: 0.8, delay: 0.45 }}
                   className="pt-4 pb-2"
                 >
-                  <h2 className="text-2xl md:text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400">
-                    Haripriya Manickam
+                  <h2 className="text-2xl md:text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-300 to-cyan-400">
+                    ML Engineer &amp; Full-Stack AI Developer
                   </h2>
-                  <h3 className="text-base text-violet-300/80 font-mono font-medium mt-1 tracking-wide">
-                    Third-Year Information Technology Student
+                  <h3 className="text-base text-violet-300/90 font-mono font-medium mt-1 tracking-wide">
+                    B.Tech IT &bull; K.S.R. College of Engineering (8.38 CGPA)
                   </h3>
                 </motion.div>
               </div>
@@ -93,7 +93,7 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="text-base md:text-lg text-muted max-w-xl leading-relaxed"
               >
-                I enjoy building AI-powered software and solving real-world problems through machine learning, deep learning, and software engineering.
+                Enthusiastic Information Technology student with skills in Python, Java, SQL, and Machine Learning. Experienced in building software and ML projects, with hands-on exposure through a Generative AI internship.
               </motion.p>
 
               <motion.div
@@ -115,8 +115,8 @@ const Hero = () => {
                 </Magnetic>
                 <Magnetic>
                   <a
-                    href="/resume.pdf"
-                    download
+                    href="/Haripriya_Resume.pdf"
+                    download="Haripriya_Resume.pdf"
                     className="px-6 py-3 rounded-lg glass border border-violet-500/40 text-text font-medium hover:border-violet-400/70 hover:bg-violet-500/10 transition-all flex items-center space-x-2"
                   >
                     <FiDownload />

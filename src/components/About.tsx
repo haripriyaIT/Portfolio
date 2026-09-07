@@ -29,7 +29,7 @@ const aboutCards = [
 const learningItems = [
   { name: 'Generative AI & LLMs', icon: <FiCpu size={20} /> },
   { name: 'Deep Learning (CNN)', icon: <FiLayers size={20} /> },
-  { name: 'Computer Vision & OpenCV', icon: <FiEye size={20} /> },
+
   { name: 'TensorFlow & Keras', icon: <SiTensorflow size={20} /> },
   { name: 'Full-Stack Java & React', icon: <FiDatabase size={20} /> },
 ];

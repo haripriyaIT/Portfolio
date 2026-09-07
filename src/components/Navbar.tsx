@@ -9,7 +9,6 @@ const navLinks = [
   { name: 'Skills', to: 'skills' },
   { name: 'Projects', to: 'projects' },
   { name: 'Experience', to: 'experience' },
-  { name: 'GitHub', to: 'github' },
   { name: 'Certifications', to: 'certifications' },
   { name: 'Contact', to: 'contact' },
 ];

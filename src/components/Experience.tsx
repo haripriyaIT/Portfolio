@@ -4,6 +4,24 @@ import { FiCode, FiTerminal, FiBriefcase, FiActivity, FiLayers, FiTarget } from 
 
 const timeline = [
   {
+    title: 'HSC (+2) & SSLC | Reliance Matric Higher Secondary School',
+    date: '2022 & 2024',
+    description: 'Completed HSC (+2) with 84.67% (2024) and SSLC with 91.2% (2022) under the Tamil Nadu State Board.',
+    icon: <FiCode size={18} />,
+  },
+  {
+    title: 'Started Learning Python',
+    date: 'Self-Learning',
+    description: 'Began self-learning Python programming — exploring fundamentals, data structures, and scripting. This sparked a deep interest in software development and AI, laying the foundation for future projects.',
+    icon: <FiTerminal size={18} />,
+  },
+  {
+    title: 'B.Tech Information Technology | K.S.R. College of Engineering',
+    date: 'Current • 8.38 CGPA',
+    description: 'Pursuing undergraduate degree in IT (Autonomous). Mastering Data Structures & Algorithms, OOPs, DBMS, Operating Systems, Computer Networks, and JDBC with hands-on development.',
+    icon: <FiLayers size={18} />,
+  },
+  {
     title: 'Generative AI Intern | Gateway Software Solutions',
     date: '15-Day Internship',
     description: 'Covered fundamentals of Generative AI, Large Language Models (LLMs), and prompt engineering. Gained hands-on exposure to Python-based AI workflows and practical applications of Generative AI in solving real-world problems.',
@@ -19,19 +37,7 @@ const timeline = [
     title: 'Java Teaching Bootcamp | KSR Polytechnic College',
     date: 'Achievement & Leadership',
     description: 'Conducted a hands-on Java programming bootcamp for polytechnic students, covering core Java concepts and practical coding sessions to strengthen their programming fundamentals.',
-    icon: <FiTerminal size={18} />,
-  },
-  {
-    title: 'B.Tech Information Technology | K.S.R. College of Engineering',
-    date: 'Current • 8.38 CGPA',
-    description: 'Pursuing undergraduate degree in IT (Autonomous). Mastering Data Structures & Algorithms, OOPs, DBMS, Operating Systems, Computer Networks, and JDBC with hands-on development.',
-    icon: <FiLayers size={18} />,
-  },
-  {
-    title: 'HSC (+2) & SSLC | Reliance Matric Higher Secondary School',
-    date: '2022 & 2024',
-    description: 'Completed HSC (+2) with 84.67% (2024) and SSLC with 91.2% (2022) under the Tamil Nadu State Board.',
-    icon: <FiCode size={18} />,
+    icon: <FiTarget size={18} />,
   },
 ];
 

@@ -5,9 +5,9 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
-import AIDashboard from '../components/AIDashboard';
+
 import Experience from '../components/Experience';
-import GithubShowcase from '../components/GithubShowcase';
+
 import Certifications from '../components/Certifications';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -48,9 +48,9 @@ const Home = () => {
         <DepthSection delay={0} depthZ={10}><About /></DepthSection>
         <DepthSection delay={0} depthZ={-5}><Skills /></DepthSection>
         <DepthSection delay={0} depthZ={15}><Projects /></DepthSection>
-        <DepthSection delay={0} depthZ={5}><AIDashboard /></DepthSection>
+
         <DepthSection delay={0} depthZ={-5}><Experience /></DepthSection>
-        <DepthSection delay={0} depthZ={10}><GithubShowcase /></DepthSection>
+
         <DepthSection delay={0} depthZ={0}><Certifications /></DepthSection>
         <DepthSection delay={0} depthZ={12}><Contact /></DepthSection>
       </main>

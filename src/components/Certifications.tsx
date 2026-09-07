@@ -3,28 +3,29 @@ import { motion } from 'framer-motion';
 import { FiAward, FiExternalLink, FiCalendar } from 'react-icons/fi';
 import cert1 from '../assets/cert1.png';
 import cert2 from '../assets/cert2.png';
+import cert3 from '../assets/cert3.jpg';
 
 const certifications = [
   {
-    title: 'Paper Presentation at IEEE Conference',
-    organization: 'University of Hyderabad',
-    date: 'IEEE Conference',
+    title: 'Paper Presentation – SUSTAINBiZ 2025',
+    organization: 'INTI International University & University of Hyderabad',
+    date: 'November 17, 2025',
     image: cert1,
-    url: '#',
+    url: '/sustainbiz_2025_certificate.jpg',
   },
   {
     title: 'TCS iON Career Edge – Young Professional',
     organization: 'Tata Consultancy Services (TCS)',
-    date: 'Professional Program',
+    date: 'June 1, 2025',
     image: cert2,
-    url: '#',
+    url: '/tcs_ion_certificate.jpg',
   },
   {
     title: 'Silver Certificate – Ignite Bootcamp Full',
     organization: 'Wadhwani Foundation',
-    date: 'Bootcamp Certification',
-    image: cert1,
-    url: '#',
+    date: 'August 11, 2026',
+    image: cert3,
+    url: '/wadhwani_certificate.pdf',
   },
 ];
 
@@ -62,7 +63,12 @@ const Certifications = () => {
               className="glass-strong neon-border-violet rounded-2xl overflow-hidden group hover:border-violet-400/60 hover:shadow-[0_0_40px_rgba(139,92,246,0.2)] transition-all flex flex-col h-full"
             >
               {/* Image Section */}
-              <div className="relative h-56 overflow-hidden bg-[#050B18]">
+              <a
+                href={cert.url !== '#' ? cert.url : cert.image}
+                target="_blank"
+                rel="noreferrer"
+                className="relative h-56 overflow-hidden bg-[#050B18] block group/img cursor-pointer"
+              >
                 <div className="absolute inset-0 bg-violet-500/10 group-hover:bg-transparent transition-colors z-10" />
                 <img
                   src={cert.image}
@@ -71,7 +77,7 @@ const Certifications = () => {
                   decoding="async"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
                 />
-              </div>
+              </a>
 
               {/* Content Section */}
               <div className="p-8 flex flex-col flex-grow">
@@ -97,7 +103,7 @@ const Certifications = () => {
                 {/* Button pushed to the bottom */}
                 <div className="mt-auto">
                   <a
-                    href={cert.url}
+                    href={cert.url !== '#' ? cert.url : cert.image}
                     target="_blank"
                     rel="noreferrer"
                     className="w-full py-3 px-4 bg-violet-500/10 border border-violet-500/30 hover:bg-violet-500/20 hover:border-violet-400/60 hover:text-violet-300 rounded-lg text-text transition-all flex items-center justify-center gap-2 font-medium"

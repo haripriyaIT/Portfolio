@@ -29,8 +29,8 @@ const ORBIT_RINGS: OrbitRing[] = [
     name: 'Languages & Frontend',
     radiusPx: 155,
     speed: 24,
-    ringColor: 'rgba(6, 182, 212, 0.35)',
-    glowColor: 'rgba(6, 182, 212, 0.45)',
+    ringColor: 'rgba(0, 200, 150, 0.4)',
+    glowColor: 'rgba(0, 200, 150, 0.45)',
     items: [
       {
         id: 'java',
@@ -125,8 +125,8 @@ const ORBIT_RINGS: OrbitRing[] = [
     name: 'Machine Learning & Libraries',
     radiusPx: 245,
     speed: 34,
-    ringColor: 'rgba(236, 72, 153, 0.35)',
-    glowColor: 'rgba(236, 72, 153, 0.45)',
+    ringColor: 'rgba(0, 229, 255, 0.4)',
+    glowColor: 'rgba(0, 229, 255, 0.45)',
     items: [
       {
         id: 'tensorflow',
@@ -245,8 +245,8 @@ const ORBIT_RINGS: OrbitRing[] = [
     name: 'Databases & Developer Tools',
     radiusPx: 335,
     speed: 46,
-    ringColor: 'rgba(139, 92, 246, 0.35)',
-    glowColor: 'rgba(139, 92, 246, 0.45)',
+    ringColor: 'rgba(95, 255, 224, 0.4)',
+    glowColor: 'rgba(95, 255, 224, 0.45)',
     items: [
       {
         id: 'mysql',
@@ -435,9 +435,9 @@ const ORBIT_RINGS: OrbitRing[] = [
         id: 'jdbc',
         label: 'JDBC',
         category: 'CS Fundamentals',
-        color: '#F59E0B',
+        color: '#00C896',
         svg: (
-          <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="#F59E0B" strokeWidth="2">
+          <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="#00C896" strokeWidth="2">
             <path d="M12 2v6M9 5h6M7 11h10v9a2 2 0 01-2 2H9a2 2 0 01-2-2v-9zM10 15h4" />
           </svg>
         ),
@@ -449,13 +449,13 @@ const ORBIT_RINGS: OrbitRing[] = [
 /* ─── Category List matching the user's resume ────────────────────────────── */
 
 const RESUME_CATEGORIES = [
-  { name: 'Languages', count: '4 Skills', color: '#F7DF1E', ringId: 'ring-1' },
-  { name: 'Frontend', count: '3 Skills', color: '#61DAFB', ringId: 'ring-1' },
-  { name: 'Known Libraries', count: '6 Skills', color: '#FF6F00', ringId: 'ring-2' },
-  { name: 'Machine learning', count: '3 Skills', color: '#06B6D4', ringId: 'ring-2' },
-  { name: 'Databases', count: '2 Skills', color: '#4479A1', ringId: 'ring-3' },
-  { name: 'Developer Tools', count: '7 Skills', color: '#F05032', ringId: 'ring-3' },
-  { name: 'CS Fundamentals', count: '6 Skills', color: '#8B5CF6', ringId: 'ring-4' },
+  { name: 'Languages', count: '4 Skills', color: '#00E5FF', ringId: 'ring-1' },
+  { name: 'Frontend', count: '3 Skills', color: '#5FFFE0', ringId: 'ring-1' },
+  { name: 'Known Libraries', count: '6 Skills', color: '#00C896', ringId: 'ring-2' },
+  { name: 'Machine learning', count: '3 Skills', color: '#38BDF8', ringId: 'ring-2' },
+  { name: 'Databases', count: '2 Skills', color: '#2DD4BF', ringId: 'ring-3' },
+  { name: 'Developer Tools', count: '7 Skills', color: '#34D399', ringId: 'ring-3' },
+  { name: 'CS Fundamentals', count: '6 Skills', color: '#A7F3D0', ringId: 'ring-4' },
 ];
 
 /* ─── Main Skills Component ─────────────────────────────────────────────────── */
@@ -474,11 +474,11 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden" style={{ background: 'rgba(5,11,24,0.88)' }}>
+    <section id="skills" className="py-24 relative overflow-hidden" style={{ background: 'rgba(3,7,18,0.85)' }}>
       {/* Ambient glowing fields */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.08)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(6,182,212,0.06)_0%,transparent_60%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(236,72,153,0.05)_0%,transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,200,150,0.08)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,229,255,0.07)_0%,transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(95,255,224,0.05)_0%,transparent_50%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
 
@@ -492,11 +492,11 @@ const Skills = () => {
         >
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-text mb-4">
             Technical{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-cyan-400 to-pink-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-teal-400">
               Skills
             </span>
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-violet-500 via-cyan-400 to-pink-500 rounded-full mx-auto" />
+          <div className="h-1 w-24 bg-gradient-to-r from-emerald-500 via-cyan-400 to-teal-500 rounded-full mx-auto" />
         </motion.div>
 
         {/* Category Filter Pills */}
@@ -505,8 +505,8 @@ const Skills = () => {
             onClick={() => { setSelectedCategory(null); setHoveredRingId(null); }}
             className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all cursor-pointer ${
               selectedCategory === null
-                ? 'bg-gradient-to-r from-violet-600 to-cyan-500 text-white shadow-[0_0_15px_rgba(139,92,246,0.4)]'
-                : 'bg-violet-500/10 border border-violet-500/20 text-violet-300 hover:text-white hover:bg-violet-500/20'
+                ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-black shadow-[0_0_15px_rgba(0,200,150,0.4)]'
+                : 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 hover:text-white hover:bg-emerald-500/20'
             }`}
           >
             All Skills (31)
@@ -523,7 +523,7 @@ const Skills = () => {
                 className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all cursor-pointer border ${
                   isCatActive
                     ? 'text-white shadow-[0_0_18px_rgba(139,92,246,0.5)]'
-                    : 'bg-violet-500/10 border-violet-500/20 text-violet-300/80 hover:text-white hover:bg-violet-500/20'
+                    : 'bg-emerald-500/10 border-emerald-500/20 text-emerald-300/80 hover:text-white hover:bg-emerald-500/20'
                 }`}
                 style={{
                   borderColor: isCatActive ? cat.color : undefined,
@@ -580,15 +580,15 @@ const Skills = () => {
                   transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
                   className="w-24 h-24 rounded-full flex flex-col items-center justify-center"
                   style={{
-                    background: 'radial-gradient(circle, rgba(139,92,246,0.95) 0%, rgba(6,182,212,0.7) 50%, rgba(5,11,24,0.9) 100%)',
-                    boxShadow: '0 0 45px rgba(139,92,246,0.9), 0 0 90px rgba(6,182,212,0.4)',
+                    background: 'radial-gradient(circle, rgba(0,200,150,0.95) 0%, rgba(0,184,130,0.7) 50%, rgba(3,7,18,0.9) 100%)',
+                    boxShadow: '0 0 45px rgba(0,200,150,0.9), 0 0 90px rgba(0,229,255,0.4)',
                     border: '1.5px solid rgba(255,255,255,0.3)',
                   }}
                 >
                   <span className="text-white text-xs font-mono font-black tracking-widest text-center leading-none">
                     AI
                   </span>
-                  <span className="text-cyan-300 text-[10px] font-mono font-bold tracking-widest mt-0.5">
+                  <span className="text-emerald-300 text-[10px] font-mono font-bold tracking-widest mt-0.5">
                     CORE
                   </span>
                 </motion.div>
@@ -679,7 +679,7 @@ const Skills = () => {
                                 }}
                               >
                                 <p className="font-heading font-bold text-white text-xs">{item.label}</p>
-                                <p className="text-[10px] text-violet-200/80 font-mono tracking-wide uppercase">{item.category}</p>
+                                <p className="text-[10px] text-emerald-200/80 font-mono tracking-wide uppercase">{item.category}</p>
                               </motion.div>
                             )}
                           </div>
@@ -703,7 +703,7 @@ const Skills = () => {
             <div className="p-4 rounded-2xl glass neon-border-violet">
               <h3 className="text-base font-heading font-bold text-text mb-1 flex items-center justify-between">
                 <span>Technical Skills Overview</span>
-                <span className="text-xs font-mono text-cyan-400">7 Domains</span>
+                <span className="text-xs font-mono text-emerald-400">7 Domains</span>
               </h3>
               <p className="text-xs text-muted mb-4 font-mono">
                 Click any category or hover orbit nodes to highlight
@@ -728,8 +728,8 @@ const Skills = () => {
                       onMouseLeave={() => setHoveredRingId(null)}
                       className={`p-3 rounded-xl border transition-all duration-300 cursor-pointer ${
                         isCatSelected
-                          ? 'bg-violet-500/20 border-violet-400 shadow-[0_0_20px_rgba(139,92,246,0.3)]'
-                          : 'bg-surface/60 border-violet-500/20 hover:border-violet-400/50 hover:bg-violet-500/10'
+                          ? 'bg-emerald-500/20 border-emerald-400 shadow-[0_0_20px_rgba(0,200,150,0.3)]'
+                          : 'bg-surface/60 border-emerald-500/20 hover:border-emerald-400/50 hover:bg-emerald-500/10'
                       }`}
                     >
                       <div className="flex items-center justify-between mb-2">
@@ -742,7 +742,7 @@ const Skills = () => {
                             {cat.name}
                           </h4>
                         </div>
-                        <span className="text-[11px] font-mono text-violet-300/70">
+                        <span className="text-[11px] font-mono text-emerald-300/70">
                           {cat.count}
                         </span>
                       </div>
@@ -767,8 +767,8 @@ const Skills = () => {
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-violet-950/20 border border-violet-500/20 text-center">
-              <p className="text-xs text-violet-300/70 font-mono">
+            <div className="p-3 rounded-xl bg-emerald-950/20 border border-emerald-500/20 text-center">
+              <p className="text-xs text-emerald-300/70 font-mono">
                 ✦ 31 skills distributed across 4 full-revolving quantum orbit tracks
               </p>
             </div>

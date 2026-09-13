@@ -8,17 +8,18 @@ interface BackgroundEnvironmentProps {
 
 export const BackgroundEnvironment: React.FC<BackgroundEnvironmentProps> = ({ mousePos }) => {
   const starsRef = useRef<THREE.Points>(null);
-  const count = 1200;
+  const count = 500;
 
   const { positions, colors, sizes } = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
     const sz = new Float32Array(count);
 
-    const cyan = new THREE.Color('#38bdf8');
-    const violet = new THREE.Color('#a855f7');
-    const white = new THREE.Color('#e0e7ff');
-    const temp = new THREE.Color();
+    const emerald   = new THREE.Color('#00C896');
+    const mint      = new THREE.Color('#5FFFE0');
+    const cyan      = new THREE.Color('#00E5FF');
+    const softWhite = new THREE.Color('#E6FFFB');
+    const temp      = new THREE.Color();
 
     for (let i = 0; i < count; i++) {
       // Distant spherical shell
@@ -31,15 +32,16 @@ export const BackgroundEnvironment: React.FC<BackgroundEnvironmentProps> = ({ mo
       pos[i * 3 + 2] = -5 - Math.random() * 25; // Far behind
 
       const pick = Math.random();
-      if (pick < 0.4) temp.copy(white);
-      else if (pick < 0.7) temp.copy(cyan);
-      else temp.copy(violet);
+      if (pick < 0.35) temp.copy(softWhite);
+      else if (pick < 0.65) temp.copy(emerald);
+      else if (pick < 0.85) temp.copy(mint);
+      else temp.copy(cyan);
 
       col[i * 3] = temp.r;
       col[i * 3 + 1] = temp.g;
       col[i * 3 + 2] = temp.b;
 
-      sz[i] = 0.5 + Math.random() * 1.5;
+      sz[i] = 0.4 + Math.random() * 0.8;
     }
 
     return { positions: pos, colors: col, sizes: sz };
@@ -62,12 +64,12 @@ export const BackgroundEnvironment: React.FC<BackgroundEnvironmentProps> = ({ mo
 
   return (
     <>
-      {/* ── Environment Lighting ── */}
-      <ambientLight intensity={0.45} color="#0d1b38" />
-      <directionalLight position={[10, 10, 5]} intensity={0.6} color="#8b5cf6" />
-      <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#06b6d4" />
+      {/* ── Environment Lighting (Soft Aurora Green × Electric Cyan) ── */}
+      <ambientLight intensity={0.25} color="#031720" />
+      <directionalLight position={[10, 10, 5]} intensity={0.35} color="#00C896" />
+      <directionalLight position={[-10, -10, -5]} intensity={0.25} color="#00E5FF" />
 
-      {/* ── Layer 1: Distant Stars ── */}
+      {/* ── Layer 1: Subtle Distant Stars ── */}
       <points ref={starsRef}>
         <bufferGeometry>
           <bufferAttribute
@@ -80,10 +82,10 @@ export const BackgroundEnvironment: React.FC<BackgroundEnvironmentProps> = ({ mo
           />
         </bufferGeometry>
         <pointsMaterial
-          size={0.06}
+          size={0.035}
           vertexColors
           transparent
-          opacity={0.65}
+          opacity={0.30}
           blending={THREE.AdditiveBlending}
           depthWrite={false}
         />

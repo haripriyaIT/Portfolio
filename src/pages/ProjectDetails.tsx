@@ -17,9 +17,9 @@ const ProjectDetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#050B18] text-text selection:bg-violet-500/30">
+    <div className="min-h-screen bg-[#030712] text-text selection:bg-violet-500/30">
       {/* Navigation Bar */}
-      <nav className="fixed top-0 inset-x-0 z-50 bg-[#050B18]/80 backdrop-blur-xl border-b border-violet-500/20 shadow-[0_4px_30px_rgba(139,92,246,0.06)]">
+      <nav className="fixed top-0 inset-x-0 z-50 bg-[#030712]/80 backdrop-blur-xl border-b border-violet-500/20 shadow-[0_4px_30px_rgba(139,92,246,0.06)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 text-muted hover:text-violet-400 transition-colors font-medium">
             <FiArrowLeft />
@@ -43,7 +43,7 @@ const ProjectDetails = () => {
         <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] rounded-full bg-cyan-500/[0.08] blur-[100px] pointer-events-none z-0" />
 
         <div className="absolute inset-0 z-[1]">
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050B18] via-[#050B18]/60 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/60 to-transparent z-10" />
           <img
             src={project.image}
             alt={project.title}
@@ -125,17 +125,17 @@ const ProjectDetails = () => {
             {/* Visual Workflow Diagram */}
             <div className="w-full glass neon-border-violet rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between text-center gap-4">
               <div className="flex-1">
-                <div className="w-16 h-16 bg-[#050B18] rounded-xl border border-violet-500/20 flex items-center justify-center mx-auto mb-4 text-xl">💾</div>
+                <div className="w-16 h-16 bg-[#030712] rounded-xl border border-violet-500/20 flex items-center justify-center mx-auto mb-4 text-xl">💾</div>
                 <h4 className="text-text font-semibold m-0">Raw Data Ingestion</h4>
               </div>
               <div className="hidden md:block text-violet-400">➔</div>
               <div className="flex-1">
-                <div className="w-16 h-16 bg-[#050B18] rounded-xl border border-violet-500 flex items-center justify-center mx-auto mb-4 text-xl shadow-[0_0_15px_rgba(139,92,246,0.3)]">🧠</div>
+                <div className="w-16 h-16 bg-[#030712] rounded-xl border border-violet-500 flex items-center justify-center mx-auto mb-4 text-xl shadow-[0_0_15px_rgba(139,92,246,0.3)]">🧠</div>
                 <h4 className="text-text font-semibold m-0">Inference Engine</h4>
               </div>
               <div className="hidden md:block text-cyan-400">➔</div>
               <div className="flex-1">
-                <div className="w-16 h-16 bg-[#050B18] rounded-xl border border-cyan-500/50 flex items-center justify-center mx-auto mb-4 text-xl shadow-[0_0_15px_rgba(6,182,212,0.3)]">📊</div>
+                <div className="w-16 h-16 bg-[#030712] rounded-xl border border-cyan-500/50 flex items-center justify-center mx-auto mb-4 text-xl shadow-[0_0_15px_rgba(6,182,212,0.3)]">📊</div>
                 <h4 className="text-text font-semibold m-0">Results Dashboard</h4>
               </div>
             </div>

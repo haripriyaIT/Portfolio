@@ -25,10 +25,10 @@ const AIDashboard = () => {
   ];
 
   return (
-    <section id="ai-dashboard" className="py-24 relative overflow-hidden" style={{ background: 'rgba(5,11,24,0.8)' }}>
+    <section id="ai-dashboard" className="py-24 relative overflow-hidden" style={{ background: 'rgba(3,7,18,0.82)' }}>
       {/* Tech grid overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(139,92,246,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(139,92,246,0.04)_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-500/8 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,200,150,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,200,150,0.04)_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/8 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
 
@@ -79,12 +79,12 @@ const AIDashboard = () => {
                 CNN-based deep learning classifier trained on 15,000+ agricultural images across 3 classes, achieving 97% accuracy with GCP cloud deployment.
               </p>
 
-              <div className="bg-[#050B18]/80 border border-violet-500/20 rounded-xl p-4 font-mono text-xs">
+              <div className="bg-[#030712]/80 border border-violet-500/20 rounded-xl p-4 font-mono text-xs">
                 <div className="flex justify-between text-muted mb-2">
                   <span>Validation Accuracy:</span>
                   <span className="text-cyan-400 font-bold">97.0%</span>
                 </div>
-                <div className="w-full bg-[#050B18] h-1.5 rounded-full overflow-hidden">
+                <div className="w-full bg-[#030712] h-1.5 rounded-full overflow-hidden">
                   <div
                     className="bg-gradient-to-r from-violet-500 to-cyan-400 h-full rounded-full"
                     style={{ width: '97%' }}
@@ -103,19 +103,19 @@ const AIDashboard = () => {
               </h4>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-[#050B18]/60 border border-violet-500/15 rounded-xl p-4 text-center">
+                <div className="bg-[#030712]/60 border border-violet-500/15 rounded-xl p-4 text-center">
                   <p className="text-[10px] font-mono text-muted uppercase">Latency</p>
                   <p className="text-2xl font-bold font-heading text-violet-400 mt-1">18ms</p>
                 </div>
-                <div className="bg-[#050B18]/60 border border-violet-500/15 rounded-xl p-4 text-center">
+                <div className="bg-[#030712]/60 border border-violet-500/15 rounded-xl p-4 text-center">
                   <p className="text-[10px] font-mono text-muted uppercase">Throughput</p>
                   <p className="text-2xl font-bold font-heading text-cyan-400 mt-1">94 req/s</p>
                 </div>
-                <div className="bg-[#050B18]/60 border border-violet-500/15 rounded-xl p-4 text-center">
+                <div className="bg-[#030712]/60 border border-violet-500/15 rounded-xl p-4 text-center">
                   <p className="text-[10px] font-mono text-muted uppercase">GPU Temp</p>
                   <p className="text-2xl font-bold font-heading text-purple-400 mt-1">68°C</p>
                 </div>
-                <div className="bg-[#050B18]/60 border border-violet-500/15 rounded-xl p-4 text-center">
+                <div className="bg-[#030712]/60 border border-violet-500/15 rounded-xl p-4 text-center">
                   <p className="text-[10px] font-mono text-muted uppercase">Memory Usage</p>
                   <p className="text-2xl font-bold font-heading text-cyan-300 mt-1">8.4 GB</p>
                 </div>
@@ -141,7 +141,7 @@ const AIDashboard = () => {
                     <span className="text-text">Deep Learning</span>
                     <span className="text-violet-400">PyTorch, TensorFlow</span>
                   </div>
-                  <div className="w-full bg-[#050B18] h-2 rounded-full overflow-hidden">
+                  <div className="w-full bg-[#030712] h-2 rounded-full overflow-hidden">
                     <div className="bg-gradient-to-r from-violet-500 to-cyan-400 h-full rounded-full" style={{ width: '90%' }} />
                   </div>
                 </div>
@@ -151,7 +151,7 @@ const AIDashboard = () => {
                     <span className="text-text">Natural Language Processing</span>
                     <span className="text-cyan-400">Transformers, LLMs</span>
                   </div>
-                  <div className="w-full bg-[#050B18] h-2 rounded-full overflow-hidden">
+                  <div className="w-full bg-[#030712] h-2 rounded-full overflow-hidden">
                     <div className="bg-gradient-to-r from-cyan-500 to-violet-400 h-full rounded-full" style={{ width: '80%' }} />
                   </div>
                 </div>
@@ -161,7 +161,7 @@ const AIDashboard = () => {
                     <span className="text-text">Computer Vision</span>
                     <span className="text-purple-400">OpenCV, CNNs</span>
                   </div>
-                  <div className="w-full bg-[#050B18] h-2 rounded-full overflow-hidden">
+                  <div className="w-full bg-[#030712] h-2 rounded-full overflow-hidden">
                     <div className="bg-gradient-to-r from-purple-500 to-violet-400 h-full rounded-full" style={{ width: '70%' }} />
                   </div>
                 </div>
@@ -183,7 +183,7 @@ const AIDashboard = () => {
                     <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-mono text-sm font-bold border shrink-0 ${
                       item.completed
                         ? 'bg-violet-500/10 border-violet-500 text-violet-400'
-                        : 'bg-[#050B18] border-violet-500/20 text-muted'
+                        : 'bg-[#030712] border-violet-500/20 text-muted'
                     }`}>
                       {item.step}
                     </div>
@@ -216,7 +216,7 @@ const AIDashboard = () => {
                 {papers.map((paper, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#050B18]/60 border border-violet-500/15 rounded-xl p-3.5 flex justify-between items-center group cursor-pointer hover:border-violet-400/40 transition-all"
+                    className="bg-[#030712]/60 border border-violet-500/15 rounded-xl p-3.5 flex justify-between items-center group cursor-pointer hover:border-violet-400/40 transition-all"
                   >
                     <div>
                       <h5 className="text-sm font-semibold text-text group-hover:text-violet-300 transition-colors line-clamp-1">

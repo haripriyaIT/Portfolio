@@ -52,20 +52,20 @@ export const QuantumSphere: React.FC<QuantumSphereProps> = ({ scrollProgress, mo
   const linePositions = useMemo(() => new Float32Array(maxConnections * 6), [maxConnections]);
   const lineColors = useMemo(() => new Float32Array(maxConnections * 6), [maxConnections]);
 
-  // Node colors: cyan/blue to violet/magenta
+  // Node colors: Aurora Green to Electric Cyan
   const nodeColors = useMemo(() => {
     const colors = new Float32Array(nodeCount * 3);
-    const cyan = new THREE.Color('#06b6d4');
-    const violet = new THREE.Color('#8b5cf6');
-    const magenta = new THREE.Color('#ec4899');
-    const temp = new THREE.Color();
+    const emerald = new THREE.Color('#00C896');
+    const mint    = new THREE.Color('#5FFFE0');
+    const cyan    = new THREE.Color('#00E5FF');
+    const temp    = new THREE.Color();
 
     for (let i = 0; i < nodeCount; i++) {
       const t = i / nodeCount;
       if (t < 0.5) {
-        temp.copy(cyan).lerp(violet, t * 2);
+        temp.copy(emerald).lerp(mint, t * 2);
       } else {
-        temp.copy(violet).lerp(magenta, (t - 0.5) * 2);
+        temp.copy(mint).lerp(cyan, (t - 0.5) * 2);
       }
       colors[i * 3] = temp.r;
       colors[i * 3 + 1] = temp.g;
@@ -78,7 +78,7 @@ export const QuantumSphere: React.FC<QuantumSphereProps> = ({ scrollProgress, mo
   const tendrilCount = isMobile ? 3 : 5;
   const tendrilMeshes = useMemo(() => {
     const items = [];
-    const colors = ['#06b6d4', '#3b82f6', '#8b5cf6', '#ec4899', '#a855f7'];
+    const colors = ['#00C896', '#5FFFE0', '#00E5FF', '#00B882', '#E6FFFB'];
 
     for (let i = 0; i < tendrilCount; i++) {
       const points: THREE.Vector3[] = [];
@@ -121,7 +121,7 @@ export const QuantumSphere: React.FC<QuantumSphereProps> = ({ scrollProgress, mo
       angle: (i * Math.PI * 2) / orbitCount,
       inclination: (Math.random() - 0.5) * Math.PI * 0.8,
       size: 0.06 + Math.random() * 0.08,
-      color: Math.random() > 0.5 ? '#06b6d4' : '#ec4899',
+      color: Math.random() > 0.5 ? '#00C896' : '#00E5FF',
     }));
   }, [orbitCount, sphereRadius]);
 
@@ -249,12 +249,12 @@ export const QuantumSphere: React.FC<QuantumSphereProps> = ({ scrollProgress, mo
               linePositions[ptr + 5] = nzj;
 
               const alpha = pulse * (1 - Math.sqrt(distSq) / threshold);
-              lineColors[ptr] = 0.2 * alpha;
-              lineColors[ptr + 1] = 0.7 * alpha;
-              lineColors[ptr + 2] = 0.95 * alpha;
-              lineColors[ptr + 3] = 0.9 * alpha;
-              lineColors[ptr + 4] = 0.3 * alpha;
-              lineColors[ptr + 5] = 0.95 * alpha;
+              lineColors[ptr] = 0.0 * alpha;     // R - emerald
+              lineColors[ptr + 1] = 0.78 * alpha; // G
+              lineColors[ptr + 2] = 0.59 * alpha; // B
+              lineColors[ptr + 3] = 0.0 * alpha;  // R - cyan
+              lineColors[ptr + 4] = 0.90 * alpha; // G
+              lineColors[ptr + 5] = 1.0 * alpha;  // B
 
               lineIdx++;
             }
@@ -277,16 +277,16 @@ export const QuantumSphere: React.FC<QuantumSphereProps> = ({ scrollProgress, mo
   return (
     <group ref={groupRef}>
       {/* Central Quantum Point Light casting soft glow onto nearby space */}
-      <pointLight color="#8b5cf6" intensity={2.8} distance={10} decay={2} />
-      <pointLight color="#06b6d4" intensity={2.0} distance={8} decay={2} position={[-1, 1, 1]} />
-      <pointLight color="#ec4899" intensity={2.2} distance={8} decay={2} position={[1, -1, 1]} />
+      <pointLight color="#00E5FF" intensity={2.8} distance={10} decay={2} />
+      <pointLight color="#00C896" intensity={2.0} distance={8} decay={2} position={[-1, 1, 1]} />
+      <pointLight color="#5FFFE0" intensity={2.2} distance={8} decay={2} position={[1, -1, 1]} />
 
       {/* ── Inner Liquid Energy Core ── */}
       <mesh ref={innerCoreRef}>
         <sphereGeometry args={[sphereRadius * 0.42, 32, 32]} />
         <meshStandardMaterial
-          color="#3b82f6"
-          emissive="#8b5cf6"
+          color="#00C896"
+          emissive="#00E5FF"
           emissiveIntensity={1.8}
           roughness={0.1}
           metalness={0.8}
@@ -299,8 +299,8 @@ export const QuantumSphere: React.FC<QuantumSphereProps> = ({ scrollProgress, mo
       <mesh ref={latticeInnerRef}>
         <dodecahedronGeometry args={[sphereRadius * 0.72, 1]} />
         <meshStandardMaterial
-          color="#ec4899"
-          emissive="#a855f7"
+          color="#5FFFE0"
+          emissive="#00C896"
           emissiveIntensity={0.9}
           wireframe
           transparent
@@ -312,8 +312,8 @@ export const QuantumSphere: React.FC<QuantumSphereProps> = ({ scrollProgress, mo
       <mesh ref={latticeRef}>
         <icosahedronGeometry args={[sphereRadius * 1.05, 2]} />
         <meshStandardMaterial
-          color="#06b6d4"
-          emissive="#06b6d4"
+          color="#00E5FF"
+          emissive="#00C896"
           emissiveIntensity={0.6}
           wireframe
           transparent

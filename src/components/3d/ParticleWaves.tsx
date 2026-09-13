@@ -130,65 +130,66 @@ const waveVertexShader = /* glsl */ `
     // Convert normalized mouse to scene coordinates approx
     vec2 mouseWorld = uMouse * vec2(10.0, 6.0);
     float distToMouse = length(pos.xy - mouseWorld);
-    float repelRadius = 2.8 + uMouseSpeed * 2.5;
+    float repelRadius = 1.8 + uMouseSpeed * 1.4;
 
     if (distToMouse < repelRadius) {
       float factor = 1.0 - (distToMouse / repelRadius);
       factor = smoothstep(0.0, 1.0, factor);
 
-      // Repel outwards
+      // Repel outwards gently
       vec2 repelDir = normalize(pos.xy - mouseWorld);
-      pos.xy += repelDir * factor * (1.6 + uMouseSpeed * 1.8);
+      pos.xy += repelDir * factor * (1.0 + uMouseSpeed * 1.0);
 
       // Swirl around cursor
       vec2 swirlDir = vec2(-repelDir.y, repelDir.x);
-      pos.xy += swirlDir * factor * (1.2 + uMouseSpeed * 2.2);
+      pos.xy += swirlDir * factor * (0.8 + uMouseSpeed * 1.2);
 
       // Disturbance lift in Z
-      pos.z += factor * 1.2;
+      pos.z += factor * 0.5;
     }
 
     // Parallax mouse tilt across depth layers
-    pos.xy += uMouse * (aDepth * 0.85);
+    pos.xy += uMouse * (aDepth * 0.55);
 
     vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
     gl_Position = projectionMatrix * mvPosition;
 
     // Particle size attenuation by depth
     float dist = -mvPosition.z;
-    gl_PointSize = (aSize * uPixelRatio * (28.0 / dist));
-    gl_PointSize = clamp(gl_PointSize, 1.0, 48.0);
+    gl_PointSize = (aSize * uPixelRatio * (20.0 / dist));
+    gl_PointSize = clamp(gl_PointSize, 0.8, 16.0);
 
-    // ── Color Palettes ──
-    // Left/Lower: Electric Cyan (#06b6d4) & Deep Blue (#3b82f6)
-    // Right/Upper: Vivid Magenta (#ec4899), Pink (#f472b6) & Violet (#8b5cf6)
-    vec3 cyan = vec3(0.024, 0.714, 0.831);
-    vec3 blue = vec3(0.231, 0.510, 0.965);
-    vec3 violet = vec3(0.545, 0.361, 0.965);
-    vec3 magenta = vec3(0.925, 0.282, 0.600);
-    vec3 pink = vec3(0.957, 0.447, 0.714);
+    // ── Color Palettes: Aurora Green × Electric Cyan ──
+    vec3 emerald   = vec3(0.0, 0.784, 0.588);   // #00C896
+    vec3 mint      = vec3(0.373, 1.0, 0.878);   // #5FFFE0
+    vec3 cyan      = vec3(0.0, 0.898, 1.0);     // #00E5FF
+    vec3 deepCyan  = vec3(0.0, 0.520, 0.600);   // Deep teal-cyan
+    vec3 softWhite = vec3(0.850, 0.98, 0.96);   // Soft white
 
     float colorMix = sin(aSeed * 6.28 + uTime * 0.2) * 0.5 + 0.5;
 
-    if (aSide < 0.5) {
-      vColor = mix(cyan, blue, colorMix);
-      // Brighten near cursor
+    if (aSide < 0.25) {
+      vColor = mix(emerald, mint, colorMix);
       if (distToMouse < repelRadius) {
-        vColor = mix(vColor, vec3(0.4, 0.9, 1.0), (1.0 - distToMouse / repelRadius) * 0.7);
+        vColor = mix(vColor, softWhite, (1.0 - distToMouse / repelRadius) * 0.5);
+      }
+    } else if (aSide > 0.75) {
+      vColor = mix(cyan, mix(deepCyan, mint, colorMix), colorMix);
+      if (distToMouse < repelRadius) {
+        vColor = mix(vColor, mix(cyan, softWhite, 0.5), (1.0 - distToMouse / repelRadius) * 0.5);
       }
     } else {
-      vColor = mix(magenta, mix(violet, pink, colorMix), colorMix);
-      // Brighten near cursor
+      vColor = mix(mint, mix(cyan, emerald, colorMix), 0.5);
       if (distToMouse < repelRadius) {
-        vColor = mix(vColor, vec3(1.0, 0.6, 0.9), (1.0 - distToMouse / repelRadius) * 0.7);
+        vColor = mix(vColor, softWhite, (1.0 - distToMouse / repelRadius) * 0.6);
       }
     }
 
-    // Base opacity with natural variance and density fade
-    float alphaBase = mix(0.25, 0.85, aSeed);
-    // Increase brightness near center
+    // Base opacity with subtle, delicate density fade
+    float alphaBase = mix(0.12, 0.38, aSeed);
+    // Slight brightness near center
     float centerDist = length(pos.xy);
-    float centerBoost = smoothstep(12.0, 2.0, centerDist) * 0.4;
+    float centerBoost = smoothstep(12.0, 2.0, centerDist) * 0.15;
     vAlpha = (alphaBase + centerBoost) * smoothstep(18.0, 8.0, dist);
   }
 `;
@@ -207,12 +208,12 @@ const waveFragmentShader = /* glsl */ `
 
     // Smooth radial falloff for digital fluid / luminous smoke feel
     float strength = 1.0 - smoothstep(0.0, 0.5, dist);
-    strength = pow(strength, 1.6);
+    strength = pow(strength, 1.8);
 
-    // Inner bright core
-    float core = 1.0 - smoothstep(0.0, 0.18, dist);
+    // Inner bright core (very gentle)
+    float core = 1.0 - smoothstep(0.0, 0.20, dist);
 
-    vec3 finalColor = vColor + vec3(core * 0.45);
+    vec3 finalColor = vColor + vec3(core * 0.20);
     float finalAlpha = vAlpha * strength;
 
     gl_FragColor = vec4(finalColor, finalAlpha);
@@ -225,7 +226,7 @@ export const ParticleWaves: React.FC<ParticleWavesProps> = ({ scrollProgress, mo
   const { viewport } = useThree();
 
   const isMobile = viewport.width < 6;
-  const particleCount = isMobile ? 2200 : 5400;
+  const particleCount = isMobile ? 1200 : 2600;
 
   // Track mouse velocity for force-field wake
   const lastMouse = useRef({ x: 0.5, y: 0.5 });
@@ -240,40 +241,44 @@ export const ParticleWaves: React.FC<ParticleWavesProps> = ({ scrollProgress, mo
     const dp = new Float32Array(particleCount);
 
     for (let i = 0; i < particleCount; i++) {
-      const isCyan = i < particleCount * 0.5; // Half cyan/lower-left, half magenta/upper-right
-      sd[i] = isCyan ? 0.0 : 1.0;
+      const streamIndex = i % 3;
+      sd[i] = streamIndex === 0 ? 0.0 : streamIndex === 1 ? 1.0 : 0.5;
       se[i] = Math.random();
       dp[i] = Math.random(); // Depth layer 0 (back) to 1 (front)
 
-      // Clustered fluid distribution:
-      // Left/lower formation vs right/upper formation
+      // Clustered fluid distribution across the screen in undulating aurora streams:
       let baseX: number;
       let baseY: number;
 
-      if (isCyan) {
-        // Cyan / electric blue: Left to Center-Lower
-        const angle = Math.random() * Math.PI * 0.8 + Math.PI * 0.8;
-        const radius = Math.pow(Math.random(), 1.5) * 11.0;
-        baseX = -6.5 + Math.cos(angle) * radius + (Math.random() - 0.5) * 4.0;
-        baseY = -3.2 + Math.sin(angle) * (radius * 0.6) + (Math.random() - 0.5) * 3.0;
+      if (streamIndex === 0) {
+        // Stream 1: Emerald / Mint aurora stream (Lower-Left to Center)
+        const angle = Math.random() * Math.PI * 0.9 + Math.PI * 0.75;
+        const radius = Math.pow(Math.random(), 1.4) * 12.0;
+        baseX = -6.0 + Math.cos(angle) * radius + (Math.random() - 0.5) * 4.0;
+        baseY = -2.8 + Math.sin(angle) * (radius * 0.65) + (Math.random() - 0.5) * 3.5;
+      } else if (streamIndex === 1) {
+        // Stream 2: Electric Cyan aurora stream (Upper-Right to Center)
+        const angle = Math.random() * Math.PI * 0.9 - Math.PI * 0.15;
+        const radius = Math.pow(Math.random(), 1.4) * 12.0;
+        baseX = 5.5 + Math.cos(angle) * radius + (Math.random() - 0.5) * 4.0;
+        baseY = 2.5 + Math.sin(angle) * (radius * 0.65) + (Math.random() - 0.5) * 3.5;
       } else {
-        // Magenta / violet / pink: Right to Center-Upper
-        const angle = Math.random() * Math.PI * 0.8 - Math.PI * 0.1;
-        const radius = Math.pow(Math.random(), 1.5) * 11.0;
-        baseX = 5.0 + Math.cos(angle) * radius + (Math.random() - 0.5) * 4.0;
-        baseY = 2.8 + Math.sin(angle) * (radius * 0.6) + (Math.random() - 0.5) * 3.0;
+        // Stream 3: Central weaving Aurora curtain across whole viewport
+        const spread = (Math.random() - 0.5) * 22.0;
+        baseX = spread;
+        baseY = Math.sin(spread * 0.25) * 2.5 + (Math.random() - 0.5) * 4.0;
       }
 
       // Random depth span: foreground to background
-      const baseZ = (dp[i] - 0.5) * 8.0;
+      const baseZ = (dp[i] - 0.5) * 9.0;
 
       pos[i * 3] = baseX;
       pos[i * 3 + 1] = baseY;
       pos[i * 3 + 2] = baseZ;
 
-      // Variable sizes: some tiny dust, some larger glowing nodes
+      // Variable sizes: subtle stardust to fine glowing points
       const sizeRandom = Math.random();
-      sz[i] = sizeRandom < 0.75 ? 0.7 + sizeRandom * 1.5 : 2.5 + sizeRandom * 2.5;
+      sz[i] = sizeRandom < 0.8 ? 0.5 + sizeRandom * 0.7 : 1.2 + sizeRandom * 0.9;
     }
 
     return {

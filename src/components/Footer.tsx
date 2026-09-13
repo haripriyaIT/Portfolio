@@ -21,7 +21,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-[#050B18]/90 pt-16 pb-8 border-t border-violet-500/20 overflow-hidden">
+    <footer className="relative bg-[#030712]/95 pt-16 pb-8 border-t border-violet-500/20 overflow-hidden">
       {/* Animated Divider */}
       <motion.div
         initial={{ scaleX: 0, opacity: 0 }}

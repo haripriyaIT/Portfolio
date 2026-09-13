@@ -8,9 +8,9 @@ const contactMethods = [
     value: 'haripriya030609@gmail.com',
     icon: <FiMail size={24} />,
     url: 'mailto:haripriya030609@gmail.com',
-    borderHover: 'hover:border-violet-400/60',
-    iconGlow: 'group-hover:text-violet-400',
-    bg: 'group-hover:bg-violet-500/10',
+    borderHover: 'hover:border-emerald-400/60',
+    iconGlow: 'group-hover:text-emerald-400',
+    bg: 'group-hover:bg-emerald-500/10',
   },
   {
     title: 'Phone',
@@ -26,18 +26,18 @@ const contactMethods = [
     value: 'in/haripriya2703',
     icon: <FiLinkedin size={24} />,
     url: 'https://linkedin.com/in/haripriya2703',
-    borderHover: 'hover:border-purple-400/60',
-    iconGlow: 'group-hover:text-purple-400',
-    bg: 'group-hover:bg-purple-500/10',
+    borderHover: 'hover:border-teal-400/60',
+    iconGlow: 'group-hover:text-teal-400',
+    bg: 'group-hover:bg-teal-500/10',
   },
   {
     title: 'GitHub',
     value: 'github.com/haripriyaIT',
     icon: <FiGithub size={24} />,
     url: 'https://github.com/haripriyaIT',
-    borderHover: 'hover:border-violet-400/60',
-    iconGlow: 'group-hover:text-violet-400',
-    bg: 'group-hover:bg-violet-500/10',
+    borderHover: 'hover:border-emerald-400/60',
+    iconGlow: 'group-hover:text-emerald-400',
+    bg: 'group-hover:bg-emerald-500/10',
   },
   {
     title: 'Location',
@@ -54,9 +54,9 @@ const contactMethods = [
     icon: <FiDownload size={24} />,
     url: '/Haripriya_Resume.pdf',
     download: 'Haripriya_Resume.pdf',
-    borderHover: 'hover:border-violet-300/60',
-    iconGlow: 'group-hover:text-violet-300',
-    bg: 'group-hover:bg-violet-300/10',
+    borderHover: 'hover:border-emerald-300/60',
+    iconGlow: 'group-hover:text-emerald-300',
+    bg: 'group-hover:bg-emerald-300/10',
   },
 ];
 
@@ -81,8 +81,8 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 relative overflow-hidden" style={{ background: 'rgba(5,11,24,0.75)' }}>
       {/* Background decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-violet-500/5 rounded-[100%] blur-[120px] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-emerald-500/5 rounded-[100%] blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-6 lg:px-8 relative z-10 text-center">
         <motion.div
@@ -95,12 +95,12 @@ const Contact = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 tracking-tight">
             Let&rsquo;s Build Something{' '}
             <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-300 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-300 to-teal-400">
               Meaningful Together.
             </span>
           </h2>
           <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto font-light">
-            I&rsquo;m currently seeking AI &amp; Machine Learning internship opportunities.
+            I&rsquo;m currently seeking AI &amp; ML or Software Developer internship opportunities.
             Whether you have a question, a project idea, or just want to connect, my inbox is always open!
           </p>
         </motion.div>
@@ -120,12 +120,12 @@ const Contact = () => {
               download={method.download ? method.download : undefined}
               target={method.download ? undefined : "_blank"}
               rel="noreferrer"
-              className={`group flex flex-col items-center justify-center p-8 glass neon-border-violet rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(139,92,246,0.15)] ${method.borderHover}`}
+              className={`group flex flex-col items-center justify-center p-8 glass neon-border-violet rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(0,200,150,0.15)] ${method.borderHover}`}
             >
-              <div className={`p-4 rounded-full bg-violet-500/10 border border-violet-500/20 text-muted mb-4 transition-all duration-300 ${method.bg} ${method.iconGlow}`}>
+              <div className={`p-4 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-muted mb-4 transition-all duration-300 ${method.bg} ${method.iconGlow}`}>
                 {method.icon}
               </div>
-              <h3 className="text-xl font-semibold text-text mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-violet-400 group-hover:to-cyan-400 transition-all duration-300">
+              <h3 className="text-xl font-semibold text-text mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-emerald-400 group-hover:to-cyan-400 transition-all duration-300">
                 {method.title}
               </h3>
               <p className="text-muted text-sm font-medium flex items-center gap-2 group-hover:text-text transition-colors">

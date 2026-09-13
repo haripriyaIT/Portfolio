@@ -45,23 +45,13 @@ const Navbar = () => {
       transition={{ duration: 0.35, ease: 'easeInOut' }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#050B18]/80 backdrop-blur-xl border-b border-violet-500/20 shadow-[0_4px_30px_rgba(139,92,246,0.08)]'
+          ? 'bg-[#030712]/85 backdrop-blur-xl border-b border-emerald-500/20 shadow-[0_4px_30px_rgba(0,200,150,0.08)]'
           : 'bg-transparent'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          to="home"
-          smooth={true}
-          duration={500}
-          className="text-2xl font-heading font-bold cursor-pointer bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent hover:from-violet-300 hover:to-cyan-300 transition-all"
-        >
-          HM.
-        </Link>
-
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-1">
+        <div className="hidden md:flex items-center space-x-1 ml-auto">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -74,13 +64,13 @@ const Navbar = () => {
             >
               {link.name}
               {/* Hover underline */}
-              <span className="absolute bottom-1 left-4 right-4 h-[2px] bg-gradient-to-r from-violet-500 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-full" />
+              <span className="absolute bottom-1 left-4 right-4 h-[2px] bg-gradient-to-r from-emerald-500 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-full" />
             </Link>
           ))}
           <a
             href="/Haripriya_Resume.pdf"
             download="Haripriya_Resume.pdf"
-            className="ml-4 px-4 py-2 rounded-md bg-gradient-to-r from-violet-600 to-purple-600 text-white border-0 hover:from-violet-500 hover:to-purple-500 transition-all flex items-center space-x-2 text-sm font-medium shadow-[0_0_20px_rgba(139,92,246,0.35)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)]"
+            className="ml-4 px-4 py-2 rounded-md bg-gradient-to-r from-emerald-500 to-cyan-500 text-black border-0 hover:from-emerald-400 hover:to-cyan-400 transition-all flex items-center space-x-2 text-sm font-medium shadow-[0_0_20px_rgba(0,200,150,0.35)] hover:shadow-[0_0_30px_rgba(0,229,255,0.5)]"
           >
             <FiDownload />
             <span>Resume</span>
@@ -88,12 +78,12 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden flex items-center ml-auto">
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle mobile menu"
             aria-expanded={isOpen}
-            className="text-muted hover:text-violet-400 transition-colors p-2"
+            className="text-muted hover:text-emerald-400 transition-colors p-2"
           >
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
@@ -107,7 +97,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#0A1628]/95 backdrop-blur-xl border-b border-violet-500/20"
+            className="md:hidden bg-[#060F1A]/95 backdrop-blur-xl border-b border-emerald-500/20"
           >
             <div className="px-4 py-4 space-y-2 flex flex-col">
               {navLinks.map((link) => (
@@ -117,9 +107,9 @@ const Navbar = () => {
                   smooth={true}
                   duration={500}
                   spy={true}
-                  activeClass="text-violet-400 bg-violet-500/10"
+                  activeClass="text-emerald-400 bg-emerald-500/10"
                   onClick={() => setIsOpen(false)}
-                  className="px-4 py-3 rounded-md text-base font-medium text-muted hover:text-text hover:bg-violet-500/10 transition-colors cursor-pointer"
+                  className="px-4 py-3 rounded-md text-base font-medium text-muted hover:text-text hover:bg-emerald-500/10 transition-colors cursor-pointer"
                 >
                   {link.name}
                 </Link>
@@ -127,7 +117,7 @@ const Navbar = () => {
               <a
                 href="/Haripriya_Resume.pdf"
                 download="Haripriya_Resume.pdf"
-                className="mt-4 px-4 py-3 rounded-md bg-gradient-to-r from-violet-600 to-purple-600 text-white text-center font-medium flex items-center justify-center space-x-2 shadow-[0_0_20px_rgba(139,92,246,0.35)]"
+                className="mt-4 px-4 py-3 rounded-md bg-gradient-to-r from-emerald-500 to-cyan-500 text-black text-center font-medium flex items-center justify-center space-x-2 shadow-[0_0_20px_rgba(0,200,150,0.35)]"
               >
                 <FiDownload />
                 <span>Download Resume</span>

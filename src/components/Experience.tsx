@@ -18,7 +18,7 @@ const timeline = [
   {
     title: 'B.Tech Information Technology | K.S.R. College of Engineering',
     date: 'Current • 8.38 CGPA',
-    description: 'Pursuing undergraduate degree in IT (Autonomous). Mastering Data Structures & Algorithms, OOPs, DBMS, Operating Systems, Computer Networks, and JDBC with hands-on development.',
+    description: 'Pursuing undergraduate degree in IT (Autonomous) with 8.38 CGPA.',
     icon: <FiLayers size={18} />,
   },
   {
@@ -44,9 +44,9 @@ const timeline = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 relative overflow-hidden" style={{ background: 'rgba(5,11,24,0.78)' }}>
+    <section id="experience" className="py-24 relative overflow-hidden" style={{ background: 'rgba(3,7,18,0.80)' }}>
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(168,85,247,0.07)_0%,transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(0,200,150,0.07)_0%,transparent_60%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div

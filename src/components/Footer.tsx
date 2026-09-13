@@ -48,7 +48,7 @@ const Footer = () => {
               Haripriya M.
             </Link>
             <p className="text-muted leading-relaxed max-w-sm">
-              ML Engineer &amp; Full-Stack AI Developer building intelligent software and machine learning solutions.
+              AI &amp; ML Engineer &amp; Software Developer building intelligent software and machine learning solutions.
             </p>
           </div>
 

@@ -16,7 +16,7 @@ const aboutCards = [
   {
     title: 'Career Goal',
     icon: <FiBriefcase className="text-teal-300" size={24} />,
-    description: 'Seeking opportunities as a Software Developer or Machine Learning Engineer to build transformative intelligent applications and solve complex challenges.',
+    description: 'Seeking opportunities as an AI & ML Engineer or Software Developer to build transformative intelligent applications and solve complex challenges.',
   },
   {
     title: 'Education & Qualifications',

@@ -68,7 +68,7 @@ const Hero = () => {
                   className="pt-4 pb-2"
                 >
                   <h2 className="text-2xl md:text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-300 to-teal-400">
-                    ML Engineer &amp; Full-Stack AI Developer
+                    AI &amp; ML Engineer &amp; Software Developer
                   </h2>
                   <h3 className="text-base text-emerald-300/90 font-mono font-medium mt-1 tracking-wide">
                     B.Tech IT &bull; K.S.R. College of Engineering (8.38 CGPA)

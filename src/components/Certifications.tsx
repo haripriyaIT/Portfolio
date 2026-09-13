@@ -4,6 +4,7 @@ import { FiAward, FiExternalLink, FiCalendar, FiChevronLeft, FiChevronRight } fr
 import cert1 from '../assets/cert1.png';
 import cert2 from '../assets/cert2.png';
 import cert3 from '../assets/cert3.jpg';
+import cert4 from '../assets/cert4.jpg';
 
 const certifications = [
   {
@@ -15,6 +16,16 @@ const certifications = [
     accent: 'from-emerald-900/80 to-emerald-950/90',
     border: 'border-emerald-500/40',
     glow: 'rgba(0,200,150,0.25)',
+  },
+  {
+    title: 'UI/UX Designing Value-Added Course',
+    organization: 'Inzovate Technologies & KSR College of Engineering',
+    date: 'August 1, 2025',
+    image: cert4,
+    url: '/inzovate_uiux_certificate.jpg',
+    accent: 'from-sky-900/80 to-indigo-950/90',
+    border: 'border-sky-500/40',
+    glow: 'rgba(56,189,248,0.25)',
   },
   {
     title: 'TCS iON Career Edge – Young Professional',

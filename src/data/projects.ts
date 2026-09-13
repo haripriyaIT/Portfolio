@@ -1,7 +1,27 @@
 import project1 from '../assets/project1.png';
 import project2 from '../assets/project2.png';
+import project3 from '../assets/cinematic-hero-scene.jpg';
 
-export const projects = [
+export interface ProjectItem {
+  id: string;
+  title: string;
+  tagline: string;
+  image: string;
+  problem: string;
+  solution: string;
+  techStack: string[];
+  architecture: string;
+  challenges: string;
+  results: string;
+  lessons: string;
+  github: string;
+  live: string;
+  accent: string;
+  border: string;
+  glow: string;
+}
+
+export const projects: ProjectItem[] = [
   {
     id: 'potato-leaf-disease-ai',
     title: 'AI-Based Potato Leaf Disease Prediction',
@@ -16,6 +36,9 @@ export const projects = [
     lessons: 'Deepened expertise in Convolutional Neural Networks, TensorFlow/Keras workflows, GCP cloud deployment, and robust RESTful API validation.',
     github: 'https://github.com/haripriyaIT',
     live: 'https://github.com/haripriyaIT',
+    accent: 'from-emerald-900/80 to-emerald-950/90',
+    border: 'border-emerald-500/40',
+    glow: 'rgba(0,200,150,0.25)',
   },
   {
     id: 'hospital-management-system',
@@ -31,6 +54,28 @@ export const projects = [
     lessons: 'Mastered enterprise Java development, JDBC database connection pooling, relational DBMS design, and role-based authentication.',
     github: 'https://github.com/haripriyaIT',
     live: 'https://github.com/haripriyaIT',
+    accent: 'from-cyan-900/80 to-cyan-950/90',
+    border: 'border-cyan-500/40',
+    glow: 'rgba(0,229,255,0.25)',
+  },
+  {
+    id: 'generative-ai-workflow-engine',
+    title: 'Generative AI & LLM Workflow Engine',
+    tagline: 'Prompt Engineering & Intelligent Knowledge Pipeline',
+    image: project3,
+    problem: 'Enterprises need efficient, context-aware information extraction and automated summarization without manual data overhead.',
+    solution: 'Built an interactive LLM-powered assistant with optimized prompt chains, semantic context retrieval, and structured response parsing.',
+    techStack: ['Python', 'OpenAI / LLMs', 'Prompt Eng.', 'FastAPI', 'React', 'TailwindCSS'],
+    architecture: 'Designed a modular multi-stage prompting pipeline with vector embeddings for semantic document search and structured JSON extraction.',
+    challenges: 'Mitigating model hallucination and standardizing deterministic output formats across diverse document schemas.',
+    results: 'Enabled instant automated document querying with 95%+ prompt consistency and sub-second response times.',
+    lessons: 'Deepened mastery of Generative AI paradigms, prompt design patterns, context window management, and LLM application architectures.',
+    github: 'https://github.com/haripriyaIT',
+    live: 'https://github.com/haripriyaIT',
+    accent: 'from-violet-900/80 to-violet-950/90',
+    border: 'border-violet-500/40',
+    glow: 'rgba(139,92,246,0.25)',
   },
 ];
+
 

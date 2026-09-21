@@ -45,7 +45,7 @@ const Navbar = () => {
       transition={{ duration: 0.35, ease: 'easeInOut' }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#030712]/85 backdrop-blur-xl border-b border-emerald-500/20 shadow-[0_4px_30px_rgba(0,200,150,0.08)]'
+          ? 'bg-[#EAF2D7]/85 backdrop-blur-xl border-b border-[#9C6BA8]/20 shadow-[0_4px_25px_rgba(110,56,123,0.06)]'
           : 'bg-transparent'
       }`}
     >
@@ -59,18 +59,18 @@ const Navbar = () => {
               smooth={true}
               duration={500}
               spy={true}
-              activeClass="active-nav-link"
-              className="relative px-4 py-2 text-sm text-muted hover:text-text transition-all cursor-pointer group"
+              activeClass="active-nav-link text-[#4A2055] font-semibold"
+              className="relative px-4 py-2 text-sm text-[#6F5179] hover:text-[#3D1A47] font-medium transition-all cursor-pointer group"
             >
               {link.name}
               {/* Hover underline */}
-              <span className="absolute bottom-1 left-4 right-4 h-[2px] bg-gradient-to-r from-emerald-500 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-full" />
+              <span className="absolute bottom-1 left-4 right-4 h-[2px] bg-[#9C6BA8] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-full" />
             </Link>
           ))}
           <a
             href="/Haripriya_Resume.pdf"
             download="Haripriya_Resume.pdf"
-            className="ml-4 px-4 py-2 rounded-md bg-gradient-to-r from-emerald-500 to-cyan-500 text-black border-0 hover:from-emerald-400 hover:to-cyan-400 transition-all flex items-center space-x-2 text-sm font-medium shadow-[0_0_20px_rgba(0,200,150,0.35)] hover:shadow-[0_0_30px_rgba(0,229,255,0.5)]"
+            className="ml-4 px-4 py-2 rounded-md bg-[#855092] hover:bg-[#6E387B] text-white transition-all flex items-center space-x-2 text-sm font-medium shadow-[0_2px_15px_rgba(133,80,146,0.3)] hover:shadow-[0_4px_20px_rgba(110,56,123,0.4)] cursor-pointer"
           >
             <FiDownload />
             <span>Resume</span>
@@ -83,7 +83,7 @@ const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle mobile menu"
             aria-expanded={isOpen}
-            className="text-muted hover:text-emerald-400 transition-colors p-2"
+            className="text-[#6F5179] hover:text-[#3D1A47] transition-colors p-2"
           >
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
@@ -97,7 +97,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#060F1A]/95 backdrop-blur-xl border-b border-emerald-500/20"
+            className="md:hidden bg-[#F4F8EC]/95 backdrop-blur-xl border-b border-[#9C6BA8]/20 shadow-lg"
           >
             <div className="px-4 py-4 space-y-2 flex flex-col">
               {navLinks.map((link) => (
@@ -107,9 +107,9 @@ const Navbar = () => {
                   smooth={true}
                   duration={500}
                   spy={true}
-                  activeClass="text-emerald-400 bg-emerald-500/10"
+                  activeClass="text-[#4A2055] bg-[#9C6BA8]/15 font-semibold"
                   onClick={() => setIsOpen(false)}
-                  className="px-4 py-3 rounded-md text-base font-medium text-muted hover:text-text hover:bg-emerald-500/10 transition-colors cursor-pointer"
+                  className="px-4 py-3 rounded-md text-base font-medium text-[#6F5179] hover:text-[#3D1A47] hover:bg-[#9C6BA8]/10 transition-colors cursor-pointer"
                 >
                   {link.name}
                 </Link>
@@ -117,7 +117,7 @@ const Navbar = () => {
               <a
                 href="/Haripriya_Resume.pdf"
                 download="Haripriya_Resume.pdf"
-                className="mt-4 px-4 py-3 rounded-md bg-gradient-to-r from-emerald-500 to-cyan-500 text-black text-center font-medium flex items-center justify-center space-x-2 shadow-[0_0_20px_rgba(0,200,150,0.35)]"
+                className="mt-4 px-4 py-3 rounded-md bg-[#855092] hover:bg-[#6E387B] text-white text-center font-medium flex items-center justify-center space-x-2 shadow-md"
               >
                 <FiDownload />
                 <span>Download Resume</span>

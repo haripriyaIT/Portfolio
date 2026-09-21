@@ -46,7 +46,7 @@ const repositories = [
 ];
 
 const GithubShowcase = () => {
-  // Deterministic pseudo-random generator — stable across renders, no flicker
+  // Deterministic pseudo-random generator for mauve/mint contribution graph
   const contributionGraph = useMemo(() => {
     let seed = 42;
     const rand = () => {
@@ -61,11 +61,11 @@ const GithubShowcase = () => {
       const week = [];
       for (let d = 0; d < days; d++) {
         const r = rand();
-        let level = 'bg-emerald-900/20';
-        if (r > 0.7)  level = 'bg-emerald-600/30';
-        if (r > 0.85) level = 'bg-emerald-500/60';
-        if (r > 0.92) level = 'bg-emerald-500/80';
-        if (r > 0.97) level = 'bg-emerald-500';
+        let level = 'bg-[#DFEAC5]/90';
+        if (r > 0.7)  level = 'bg-[#9C6BA8]/30';
+        if (r > 0.85) level = 'bg-[#9C6BA8]/60';
+        if (r > 0.92) level = 'bg-[#9C6BA8]';
+        if (r > 0.97) level = 'bg-[#855092]';
         week.push(level);
       }
       graph.push(week);
@@ -74,9 +74,9 @@ const GithubShowcase = () => {
   }, []);
 
   return (
-    <section id="github" className="py-24 relative overflow-hidden" style={{ background: 'rgba(5,11,24,0.75)' }}>
+    <section id="github" className="py-24 relative overflow-hidden" style={{ background: 'rgba(234, 242, 215, 0.45)' }}>
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,200,150,0.07)_0%,transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(156,107,168,0.06)_0%,transparent_60%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
@@ -87,20 +87,20 @@ const GithubShowcase = () => {
           className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4"
         >
           <div>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-text mb-4 flex items-center gap-3">
-              <FiGithub className="text-emerald-400" />
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-[#3D1A47] mb-4 flex items-center gap-3">
+              <FiGithub className="text-[#855092]" />
               GitHub{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D1A47] via-[#6E387B] to-[#9C6BA8]">
                 Showcase
               </span>
             </h2>
-            <div className="h-1 w-20 bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full" />
+            <div className="h-1 w-20 bg-[#855092] rounded-full" />
           </div>
           <a
             href="https://github.com/haripriyaIT"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 glass neon-border-violet rounded-lg text-text hover:text-emerald-300 hover:border-emerald-400/60 transition-all font-medium text-sm w-fit"
+            className="flex items-center gap-2 px-5 py-2.5 bg-white/80 border border-[#9C6BA8]/30 rounded-lg text-[#6E387B] hover:text-[#3D1A47] hover:border-[#855092] hover:bg-white shadow-sm transition-all font-medium text-sm w-fit cursor-pointer"
           >
             Follow @haripriyaIT <FiExternalLink />
           </a>
@@ -116,10 +116,10 @@ const GithubShowcase = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="glass neon-border-violet rounded-2xl p-6 shadow-lg"
+              className="bg-white/80 border border-[#9C6BA8]/20 rounded-2xl p-6 shadow-sm backdrop-blur-md"
             >
-              <h3 className="text-lg font-semibold text-text mb-6 flex items-center gap-2">
-                <FiActivity className="text-emerald-400" /> 582 contributions in the last year
+              <h3 className="text-lg font-semibold text-[#3D1A47] mb-6 flex items-center gap-2">
+                <FiActivity className="text-[#855092]" /> 582 contributions in the last year
               </h3>
 
               <div className="overflow-x-auto pb-4 custom-scrollbar">
@@ -129,7 +129,7 @@ const GithubShowcase = () => {
                       {week.map((level, dIndex) => (
                         <div
                           key={dIndex}
-                          className={`w-3.5 h-3.5 rounded-sm ${level} hover:ring-1 hover:ring-emerald-400/50 transition-all cursor-pointer`}
+                          className={`w-3.5 h-3.5 rounded-sm ${level} hover:ring-1 hover:ring-[#855092] transition-all cursor-pointer`}
                           title="Contribution activity"
                         />
                       ))}
@@ -138,16 +138,16 @@ const GithubShowcase = () => {
                 </div>
               </div>
 
-              <div className="flex justify-between items-center mt-4 text-xs text-muted">
+              <div className="flex justify-between items-center mt-4 text-xs text-[#6F5179]">
                 <span>Learn how we count contributions</span>
                 <div className="flex items-center gap-2">
                   <span>Less</span>
                   <div className="flex gap-1">
-                    <div className="w-3 h-3 rounded-sm bg-emerald-900/20" />
-                    <div className="w-3 h-3 rounded-sm bg-emerald-600/30" />
-                    <div className="w-3 h-3 rounded-sm bg-emerald-500/60" />
-                    <div className="w-3 h-3 rounded-sm bg-emerald-500/80" />
-                    <div className="w-3 h-3 rounded-sm bg-emerald-500" />
+                    <div className="w-3 h-3 rounded-sm bg-[#DFEAC5]/90" />
+                    <div className="w-3 h-3 rounded-sm bg-[#9C6BA8]/30" />
+                    <div className="w-3 h-3 rounded-sm bg-[#9C6BA8]/60" />
+                    <div className="w-3 h-3 rounded-sm bg-[#9C6BA8]" />
+                    <div className="w-3 h-3 rounded-sm bg-[#855092]" />
                   </div>
                   <span>More</span>
                 </div>
@@ -156,7 +156,7 @@ const GithubShowcase = () => {
 
             {/* Repositories Grid */}
             <div>
-              <h3 className="text-xl font-heading font-semibold text-text mb-6">Featured Repositories</h3>
+              <h3 className="text-xl font-heading font-semibold text-[#3D1A47] mb-6">Featured Repositories</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 {repositories.map((repo, idx) => (
                   <motion.div
@@ -165,23 +165,23 @@ const GithubShowcase = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="glass neon-border-violet rounded-xl p-5 hover:border-emerald-400/60 hover:shadow-[0_0_30px_rgba(0,200,150,0.15)] transition-all flex flex-col h-full group"
+                    className="bg-white/80 border border-[#9C6BA8]/20 rounded-xl p-5 hover:border-[#855092]/40 hover:shadow-[0_4px_20px_rgba(156,107,168,0.1)] backdrop-blur-md transition-all flex flex-col h-full group"
                   >
                     <div className="flex justify-between items-start mb-3">
-                      <div className="flex items-center gap-2 text-emerald-400 font-semibold text-lg group-hover:underline cursor-pointer">
-                        <FiBook className="text-muted" />
+                      <div className="flex items-center gap-2 text-[#3D1A47] font-semibold text-lg group-hover:underline cursor-pointer">
+                        <FiBook className="text-[#855092]" />
                         {repo.name}
                       </div>
-                      <span className="px-2.5 py-0.5 rounded-full border border-emerald-500/20 text-xs font-mono font-medium text-emerald-300 bg-emerald-500/10">
+                      <span className="px-2.5 py-0.5 rounded-full border border-[#9C6BA8]/25 text-xs font-mono font-medium text-[#6E387B] bg-[#9C6BA8]/10">
                         {repo.type}
                       </span>
                     </div>
 
-                    <p className="text-muted text-sm flex-grow mb-6 leading-relaxed">
+                    <p className="text-[#6F5179] text-sm flex-grow mb-6 leading-relaxed">
                       {repo.description}
                     </p>
 
-                    <div className="flex items-center justify-between text-xs font-medium text-muted mt-auto">
+                    <div className="flex items-center justify-between text-xs font-medium text-[#6F5179] mt-auto">
                       <div className="flex items-center gap-4">
                         <span className="flex items-center gap-1.5">
                           <span
@@ -190,10 +190,10 @@ const GithubShowcase = () => {
                           />
                           {repo.language}
                         </span>
-                        <span className="flex items-center gap-1 hover:text-emerald-400 cursor-pointer transition-colors">
+                        <span className="flex items-center gap-1 hover:text-[#3D1A47] cursor-pointer transition-colors">
                           <FiStar /> {repo.stars}
                         </span>
-                        <span className="flex items-center gap-1 hover:text-emerald-400 cursor-pointer transition-colors">
+                        <span className="flex items-center gap-1 hover:text-[#3D1A47] cursor-pointer transition-colors">
                           <FiGitBranch /> {repo.forks}
                         </span>
                       </div>
@@ -211,24 +211,24 @@ const GithubShowcase = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="glass neon-border-violet rounded-2xl p-6 shadow-lg"
+              className="bg-white/80 border border-[#9C6BA8]/20 rounded-2xl p-6 shadow-sm backdrop-blur-md"
             >
-              <h3 className="text-lg font-semibold text-text mb-6 border-b border-emerald-500/20 pb-4">
+              <h3 className="text-lg font-semibold text-[#3D1A47] mb-6 border-b border-[#9C6BA8]/20 pb-4">
                 GitHub Statistics
               </h3>
 
               <div className="space-y-4">
-                <div className="flex justify-between items-center p-3 bg-[#060F1A]/60 border border-emerald-500/15 rounded-lg">
-                  <span className="flex items-center gap-2 text-muted"><FiStar className="text-emerald-400" /> Total Stars</span>
-                  <span className="font-bold text-text">270</span>
+                <div className="flex justify-between items-center p-3 bg-[#F4F8EC]/90 border border-[#9C6BA8]/20 rounded-lg">
+                  <span className="flex items-center gap-2 text-[#6F5179]"><FiStar className="text-[#855092]" /> Total Stars</span>
+                  <span className="font-bold text-[#3D1A47]">270</span>
                 </div>
-                <div className="flex justify-between items-center p-3 bg-[#060F1A]/60 border border-emerald-500/15 rounded-lg">
-                  <span className="flex items-center gap-2 text-muted"><FiBook className="text-emerald-400" /> Repositories</span>
-                  <span className="font-bold text-text">24</span>
+                <div className="flex justify-between items-center p-3 bg-[#F4F8EC]/90 border border-[#9C6BA8]/20 rounded-lg">
+                  <span className="flex items-center gap-2 text-[#6F5179]"><FiBook className="text-[#855092]" /> Repositories</span>
+                  <span className="font-bold text-[#3D1A47]">24</span>
                 </div>
-                <div className="flex justify-between items-center p-3 bg-[#060F1A]/60 border border-emerald-500/15 rounded-lg">
-                  <span className="flex items-center gap-2 text-muted"><FiGitBranch className="text-emerald-400" /> Total Commits</span>
-                  <span className="font-bold text-text">1,402</span>
+                <div className="flex justify-between items-center p-3 bg-[#F4F8EC]/90 border border-[#9C6BA8]/20 rounded-lg">
+                  <span className="flex items-center gap-2 text-[#6F5179]"><FiGitBranch className="text-[#855092]" /> Total Commits</span>
+                  <span className="font-bold text-[#3D1A47]">1,402</span>
                 </div>
               </div>
             </motion.div>
@@ -238,38 +238,38 @@ const GithubShowcase = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="glass neon-border-violet rounded-2xl p-6 shadow-lg"
+              className="bg-white/80 border border-[#9C6BA8]/20 rounded-2xl p-6 shadow-sm backdrop-blur-md"
             >
-              <h3 className="text-lg font-semibold text-text mb-6 border-b border-emerald-500/20 pb-4 flex items-center gap-2">
-                <FiPieChart className="text-emerald-400" /> Top Languages
+              <h3 className="text-lg font-semibold text-[#3D1A47] mb-6 border-b border-[#9C6BA8]/20 pb-4 flex items-center gap-2">
+                <FiPieChart className="text-[#855092]" /> Top Languages
               </h3>
 
               <div className="space-y-4">
                 <div>
                   <div className="flex justify-between text-sm mb-1">
-                    <span className="font-medium text-text">Python</span>
-                    <span className="text-muted">65%</span>
+                    <span className="font-medium text-[#3D1A47]">Python</span>
+                    <span className="text-[#6F5179]">65%</span>
                   </div>
-                  <div className="w-full bg-[#030712] rounded-full h-2">
-                    <div className="bg-[#3572A5] h-2 rounded-full" style={{ width: '65%' }}></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="font-medium text-text">Jupyter Notebook</span>
-                    <span className="text-muted">20%</span>
-                  </div>
-                  <div className="w-full bg-[#030712] rounded-full h-2">
-                    <div className="bg-[#DA5B0B] h-2 rounded-full" style={{ width: '20%' }}></div>
+                  <div className="w-full bg-[#DFEAC5] rounded-full h-2 overflow-hidden">
+                    <div className="bg-[#855092] h-2 rounded-full" style={{ width: '65%' }}></div>
                   </div>
                 </div>
                 <div>
                   <div className="flex justify-between text-sm mb-1">
-                    <span className="font-medium text-text">TypeScript / React</span>
-                    <span className="text-muted">15%</span>
+                    <span className="font-medium text-[#3D1A47]">Jupyter Notebook</span>
+                    <span className="text-[#6F5179]">20%</span>
                   </div>
-                  <div className="w-full bg-[#030712] rounded-full h-2">
-                    <div className="bg-[#3178c6] h-2 rounded-full" style={{ width: '15%' }}></div>
+                  <div className="w-full bg-[#DFEAC5] rounded-full h-2 overflow-hidden">
+                    <div className="bg-[#9C6BA8] h-2 rounded-full" style={{ width: '20%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span className="font-medium text-[#3D1A47]">TypeScript / React</span>
+                    <span className="text-[#6F5179]">15%</span>
+                  </div>
+                  <div className="w-full bg-[#DFEAC5] rounded-full h-2 overflow-hidden">
+                    <div className="bg-[#6E387B] h-2 rounded-full" style={{ width: '15%' }}></div>
                   </div>
                 </div>
               </div>

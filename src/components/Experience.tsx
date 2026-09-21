@@ -41,12 +41,11 @@ const timeline = [
   },
 ];
 
-
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 relative overflow-hidden" style={{ background: 'rgba(3,7,18,0.80)' }}>
+    <section id="experience" className="py-24 relative overflow-hidden" style={{ background: 'rgba(234, 242, 215, 0.4)' }}>
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(0,200,150,0.07)_0%,transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(156,107,168,0.06)_0%,transparent_60%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
@@ -56,18 +55,18 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
           className="mb-20 text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-text mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-[#3D1A47] mb-4">
             My{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D1A47] via-[#6E387B] to-[#9C6BA8]">
               Journey
             </span>
           </h2>
-          <div className="h-1 w-20 bg-gradient-to-r from-violet-500 to-cyan-400 rounded-full mx-auto" />
+          <div className="h-1 w-20 bg-[#855092] rounded-full mx-auto" />
         </motion.div>
 
         <div className="relative max-w-4xl mx-auto">
           {/* Vertical Connecting Line */}
-          <div className="absolute left-[20px] md:left-1/2 top-4 bottom-4 w-px bg-gradient-to-b from-violet-500/50 via-purple-500/30 to-transparent md:-translate-x-1/2 z-0" />
+          <div className="absolute left-[20px] md:left-1/2 top-4 bottom-4 w-px bg-gradient-to-b from-[#855092]/60 via-[#9C6BA8]/30 to-transparent md:-translate-x-1/2 z-0" />
 
           {timeline.map((item, index) => {
             const isEven = index % 2 === 0;
@@ -87,30 +86,25 @@ const Experience = () => {
                 <div className="hidden md:block w-5/12" />
 
                 {/* Timeline Icon */}
-                <div className="absolute left-[20px] md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-violet-500/10 border-2 border-violet-500 flex items-center justify-center text-violet-400 z-10 shadow-[0_0_15px_rgba(139,92,246,0.4)]">
+                <div className="absolute left-[20px] md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-white border-2 border-[#855092] flex items-center justify-center text-[#855092] z-10 shadow-[0_0_15px_rgba(156,107,168,0.25)]">
                   {item.icon}
                 </div>
 
                 {/* Content Card */}
                 <div className="w-full pl-16 md:pl-0 md:w-5/12">
                   <div
-                    className={`p-6 glass neon-border-violet rounded-2xl hover:border-violet-400/60 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] transition-all group relative ${
+                    className={`p-6 bg-white/80 border border-[#9C6BA8]/20 rounded-2xl hover:border-[#855092]/40 hover:shadow-[0_4px_20px_rgba(156,107,168,0.12)] backdrop-blur-md transition-all group relative ${
                       isEven ? 'md:text-right' : 'md:text-left'
                     }`}
                   >
-                    {/* Hover Glow Effect */}
-                    <div className={`absolute inset-0 bg-gradient-to-r from-violet-500/0 to-violet-500/0 group-hover:from-violet-500/5 group-hover:to-cyan-500/5 transition-colors rounded-2xl z-0 ${
-                      isEven ? 'md:group-hover:bg-gradient-to-l' : ''
-                    }`} />
-
                     <div className="relative z-10">
-                      <span className="inline-block py-1 px-3 rounded-full bg-violet-500/10 border border-violet-500/30 text-violet-300 text-xs font-mono font-bold mb-4 tracking-wider uppercase">
+                      <span className="inline-block py-1 px-3 rounded-full bg-[#9C6BA8]/15 border border-[#9C6BA8]/25 text-[#6E387B] text-xs font-mono font-bold mb-4 tracking-wider uppercase">
                         {item.date}
                       </span>
-                      <h3 className="text-xl font-heading font-bold text-text mb-3">
+                      <h3 className="text-xl font-heading font-bold text-[#3D1A47] mb-3">
                         {item.title}
                       </h3>
-                      <p className="text-muted leading-relaxed text-sm md:text-base">
+                      <p className="text-[#6F5179] leading-relaxed text-sm md:text-base">
                         {item.description}
                       </p>
                     </div>

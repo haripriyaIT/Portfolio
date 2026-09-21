@@ -36,9 +36,9 @@ export const projects: ProjectItem[] = [
     lessons: 'Deepened expertise in Convolutional Neural Networks, TensorFlow/Keras workflows, GCP cloud deployment, and robust RESTful API validation.',
     github: 'https://github.com/haripriyaIT',
     live: 'https://github.com/haripriyaIT',
-    accent: 'from-emerald-900/80 to-emerald-950/90',
-    border: 'border-emerald-500/40',
-    glow: 'rgba(0,200,150,0.25)',
+    accent: 'from-white/95 to-[#F4F8EC]/90',
+    border: 'border-[#9C6BA8]/25',
+    glow: 'rgba(156,107,168,0.12)',
   },
   {
     id: 'hospital-management-system',
@@ -54,9 +54,9 @@ export const projects: ProjectItem[] = [
     lessons: 'Mastered enterprise Java development, JDBC database connection pooling, relational DBMS design, and role-based authentication.',
     github: 'https://github.com/haripriyaIT',
     live: 'https://github.com/haripriyaIT',
-    accent: 'from-cyan-900/80 to-cyan-950/90',
-    border: 'border-cyan-500/40',
-    glow: 'rgba(0,229,255,0.25)',
+    accent: 'from-white/95 to-[#F4F8EC]/90',
+    border: 'border-[#9C6BA8]/25',
+    glow: 'rgba(156,107,168,0.12)',
   },
   {
     id: 'generative-ai-workflow-engine',
@@ -72,10 +72,8 @@ export const projects: ProjectItem[] = [
     lessons: 'Deepened mastery of Generative AI paradigms, prompt design patterns, context window management, and LLM application architectures.',
     github: 'https://github.com/haripriyaIT',
     live: 'https://github.com/haripriyaIT',
-    accent: 'from-violet-900/80 to-violet-950/90',
-    border: 'border-violet-500/40',
-    glow: 'rgba(139,92,246,0.25)',
+    accent: 'from-white/95 to-[#F4F8EC]/90',
+    border: 'border-[#9C6BA8]/25',
+    glow: 'rgba(156,107,168,0.12)',
   },
 ];
-
-

@@ -4,16 +4,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#050B18',
-        card:       '#0A1628',
-        surface:    '#0F1E35',
-        primary:    '#3B82F6',
-        secondary:  '#06B6D4',
-        violet:     '#8B5CF6',
-        purple:     '#A855F7',
-        magenta:    '#EC4899',
-        text:       '#F0F4FF',
-        muted:      '#6B7FA3',
+        background: '#EAF2D7',
+        card:       '#F4F8EC',
+        surface:    '#DFEAC5',
+        primary:    '#8B5796',
+        secondary:  '#9C6BA8',
+        violet:     '#8B5796',
+        purple:     '#6E387B',
+        magenta:    '#A26EA6',
+        text:       '#3D1A47',
+        muted:      '#6F5179',
       },
       fontFamily: {
         sans:    ['Inter', 'sans-serif'],

@@ -7,7 +7,7 @@ interface ParticleWavesProps {
   mousePos: React.MutableRefObject<{ x: number; y: number }>;
 }
 
-// ─── Custom GLSL Shaders for Particle Waves ─────────────────────────────────
+// ─── Custom GLSL Shaders for Particle Waves (Frost & Bouquet Bright Theme) ───
 
 const waveVertexShader = /* glsl */ `
   uniform float uTime;
@@ -17,7 +17,7 @@ const waveVertexShader = /* glsl */ `
   uniform float uPixelRatio;
 
   attribute float aSize;
-  attribute float aSide; // 0.0 = cyan (left/lower), 1.0 = magenta (right/upper)
+  attribute float aSide;
   attribute float aSeed;
   attribute float aDepth;
   attribute vec3 aInitialPos;
@@ -26,7 +26,6 @@ const waveVertexShader = /* glsl */ `
   varying float vAlpha;
   varying float vDepth;
 
-  // Pseudo 3D Simplex-like Noise
   vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
   vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
   vec4 permute(vec4 x) { return mod289(((x*34.0)+1.0)*x); }
@@ -92,7 +91,6 @@ const waveVertexShader = /* glsl */ `
     return 42.0 * dot(m*m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));
   }
 
-  // Curl noise for fluid swirling
   vec3 curlNoise(vec3 p) {
     const float e = 0.1;
     float n1 = snoise(vec3(p.x, p.y + e, p.z));
@@ -112,22 +110,17 @@ const waveVertexShader = /* glsl */ `
     vDepth = aDepth;
     vec3 pos = aInitialPos;
 
-    // Organic continuous horizontal fluid flow
     float flowSpeed = aSide < 0.5 ? 0.35 : -0.28;
     pos.x += sin(uTime * 0.25 * flowSpeed + aSeed * 10.0) * 1.8;
     pos.y += cos(uTime * 0.35 + pos.x * 0.2 + aSeed * 6.28) * 0.85;
 
-    // Multi-octave wave displacement (liquid + smoke behavior)
     vec3 noiseCoord = pos * 0.18 + vec3(uTime * 0.08, uTime * 0.06, aSeed);
     vec3 curl = curlNoise(noiseCoord);
     pos += curl * (1.2 + sin(uTime * 0.4 + aSeed * 3.14) * 0.5);
 
-    // Scroll depth parallax
     pos.z += uScrollProgress * (aDepth - 0.5) * 4.0;
     pos.y -= uScrollProgress * 1.5;
 
-    // ── Mouse Cursor Disturbance (Liquid Repel + Swirl Wake) ──
-    // Convert normalized mouse to scene coordinates approx
     vec2 mouseWorld = uMouse * vec2(10.0, 6.0);
     float distToMouse = length(pos.xy - mouseWorld);
     float repelRadius = 1.8 + uMouseSpeed * 1.4;
@@ -136,58 +129,51 @@ const waveVertexShader = /* glsl */ `
       float factor = 1.0 - (distToMouse / repelRadius);
       factor = smoothstep(0.0, 1.0, factor);
 
-      // Repel outwards gently
       vec2 repelDir = normalize(pos.xy - mouseWorld);
       pos.xy += repelDir * factor * (1.0 + uMouseSpeed * 1.0);
 
-      // Swirl around cursor
       vec2 swirlDir = vec2(-repelDir.y, repelDir.x);
       pos.xy += swirlDir * factor * (0.8 + uMouseSpeed * 1.2);
 
-      // Disturbance lift in Z
       pos.z += factor * 0.5;
     }
 
-    // Parallax mouse tilt across depth layers
     pos.xy += uMouse * (aDepth * 0.55);
 
     vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
     gl_Position = projectionMatrix * mvPosition;
 
-    // Particle size attenuation by depth
     float dist = -mvPosition.z;
-    gl_PointSize = (aSize * uPixelRatio * (20.0 / dist));
-    gl_PointSize = clamp(gl_PointSize, 0.8, 16.0);
+    gl_PointSize = (aSize * uPixelRatio * (22.0 / dist));
+    gl_PointSize = clamp(gl_PointSize, 1.2, 18.0);
 
-    // ── Color Palettes: Aurora Green × Electric Cyan ──
-    vec3 emerald   = vec3(0.0, 0.784, 0.588);   // #00C896
-    vec3 mint      = vec3(0.373, 1.0, 0.878);   // #5FFFE0
-    vec3 cyan      = vec3(0.0, 0.898, 1.0);     // #00E5FF
-    vec3 deepCyan  = vec3(0.0, 0.520, 0.600);   // Deep teal-cyan
-    vec3 softWhite = vec3(0.850, 0.98, 0.96);   // Soft white
+    // ── Color Palettes: Frost & Bouquet (Lavender Mauve, Lilac, Sage, Rose) ──
+    vec3 deepPlum  = vec3(0.38, 0.16, 0.44); // #612970
+    vec3 bouquet   = vec3(0.61, 0.42, 0.66); // #9C6BA8
+    vec3 lilac     = vec3(0.72, 0.54, 0.78); // #B889C6
+    vec3 sageMint  = vec3(0.48, 0.60, 0.35); // #7B9849
+    vec3 softRose  = vec3(0.85, 0.68, 0.82); // #D9ADC9
 
     float colorMix = sin(aSeed * 6.28 + uTime * 0.2) * 0.5 + 0.5;
 
     if (aSide < 0.25) {
-      vColor = mix(emerald, mint, colorMix);
+      vColor = mix(bouquet, lilac, colorMix);
       if (distToMouse < repelRadius) {
-        vColor = mix(vColor, softWhite, (1.0 - distToMouse / repelRadius) * 0.5);
+        vColor = mix(vColor, deepPlum, (1.0 - distToMouse / repelRadius) * 0.6);
       }
     } else if (aSide > 0.75) {
-      vColor = mix(cyan, mix(deepCyan, mint, colorMix), colorMix);
+      vColor = mix(sageMint, mix(lilac, softRose, colorMix), colorMix);
       if (distToMouse < repelRadius) {
-        vColor = mix(vColor, mix(cyan, softWhite, 0.5), (1.0 - distToMouse / repelRadius) * 0.5);
+        vColor = mix(vColor, deepPlum, (1.0 - distToMouse / repelRadius) * 0.5);
       }
     } else {
-      vColor = mix(mint, mix(cyan, emerald, colorMix), 0.5);
+      vColor = mix(bouquet, mix(softRose, deepPlum, colorMix), 0.5);
       if (distToMouse < repelRadius) {
-        vColor = mix(vColor, softWhite, (1.0 - distToMouse / repelRadius) * 0.6);
+        vColor = mix(vColor, lilac, (1.0 - distToMouse / repelRadius) * 0.7);
       }
     }
 
-    // Base opacity with subtle, delicate density fade
-    float alphaBase = mix(0.12, 0.38, aSeed);
-    // Slight brightness near center
+    float alphaBase = mix(0.35, 0.65, aSeed);
     float centerDist = length(pos.xy);
     float centerBoost = smoothstep(12.0, 2.0, centerDist) * 0.15;
     vAlpha = (alphaBase + centerBoost) * smoothstep(18.0, 8.0, dist);
@@ -200,21 +186,18 @@ const waveFragmentShader = /* glsl */ `
   varying float vDepth;
 
   void main() {
-    // Render soft glowing disc
     vec2 coord = gl_PointCoord - vec2(0.5);
     float dist = length(coord);
 
     if (dist > 0.5) discard;
 
-    // Smooth radial falloff for digital fluid / luminous smoke feel
     float strength = 1.0 - smoothstep(0.0, 0.5, dist);
-    strength = pow(strength, 1.8);
+    strength = pow(strength, 1.4);
 
-    // Inner bright core (very gentle)
-    float core = 1.0 - smoothstep(0.0, 0.20, dist);
+    float core = 1.0 - smoothstep(0.0, 0.22, dist);
 
-    vec3 finalColor = vColor + vec3(core * 0.20);
-    float finalAlpha = vAlpha * strength;
+    vec3 finalColor = vColor + vec3(core * 0.15);
+    float finalAlpha = vAlpha * strength * 0.85;
 
     gl_FragColor = vec4(finalColor, finalAlpha);
   }
@@ -228,11 +211,9 @@ export const ParticleWaves: React.FC<ParticleWavesProps> = ({ scrollProgress, mo
   const isMobile = viewport.width < 6;
   const particleCount = isMobile ? 1200 : 2600;
 
-  // Track mouse velocity for force-field wake
   const lastMouse = useRef({ x: 0.5, y: 0.5 });
   const mouseSpeed = useRef(0);
 
-  // Generate particle buffer attributes
   const { positions, sizes, sides, seeds, depths } = useMemo(() => {
     const pos = new Float32Array(particleCount * 3);
     const sz = new Float32Array(particleCount);
@@ -244,41 +225,35 @@ export const ParticleWaves: React.FC<ParticleWavesProps> = ({ scrollProgress, mo
       const streamIndex = i % 3;
       sd[i] = streamIndex === 0 ? 0.0 : streamIndex === 1 ? 1.0 : 0.5;
       se[i] = Math.random();
-      dp[i] = Math.random(); // Depth layer 0 (back) to 1 (front)
+      dp[i] = Math.random();
 
-      // Clustered fluid distribution across the screen in undulating aurora streams:
       let baseX: number;
       let baseY: number;
 
       if (streamIndex === 0) {
-        // Stream 1: Emerald / Mint aurora stream (Lower-Left to Center)
         const angle = Math.random() * Math.PI * 0.9 + Math.PI * 0.75;
         const radius = Math.pow(Math.random(), 1.4) * 12.0;
         baseX = -6.0 + Math.cos(angle) * radius + (Math.random() - 0.5) * 4.0;
         baseY = -2.8 + Math.sin(angle) * (radius * 0.65) + (Math.random() - 0.5) * 3.5;
       } else if (streamIndex === 1) {
-        // Stream 2: Electric Cyan aurora stream (Upper-Right to Center)
         const angle = Math.random() * Math.PI * 0.9 - Math.PI * 0.15;
         const radius = Math.pow(Math.random(), 1.4) * 12.0;
         baseX = 5.5 + Math.cos(angle) * radius + (Math.random() - 0.5) * 4.0;
         baseY = 2.5 + Math.sin(angle) * (radius * 0.65) + (Math.random() - 0.5) * 3.5;
       } else {
-        // Stream 3: Central weaving Aurora curtain across whole viewport
         const spread = (Math.random() - 0.5) * 22.0;
         baseX = spread;
         baseY = Math.sin(spread * 0.25) * 2.5 + (Math.random() - 0.5) * 4.0;
       }
 
-      // Random depth span: foreground to background
       const baseZ = (dp[i] - 0.5) * 9.0;
 
       pos[i * 3] = baseX;
       pos[i * 3 + 1] = baseY;
       pos[i * 3 + 2] = baseZ;
 
-      // Variable sizes: subtle stardust to fine glowing points
       const sizeRandom = Math.random();
-      sz[i] = sizeRandom < 0.8 ? 0.5 + sizeRandom * 0.7 : 1.2 + sizeRandom * 0.9;
+      sz[i] = sizeRandom < 0.8 ? 0.6 + sizeRandom * 0.8 : 1.4 + sizeRandom * 1.0;
     }
 
     return {
@@ -290,7 +265,6 @@ export const ParticleWaves: React.FC<ParticleWavesProps> = ({ scrollProgress, mo
     };
   }, [particleCount]);
 
-  // Uniforms
   const uniforms = useMemo(
     () => ({
       uTime: { value: 0 },
@@ -307,7 +281,6 @@ export const ParticleWaves: React.FC<ParticleWavesProps> = ({ scrollProgress, mo
 
     const t = state.clock.getElapsedTime();
 
-    // Mouse velocity calculation
     const curX = mousePos.current.x;
     const curY = mousePos.current.y;
     const dx = curX - lastMouse.current.x;
@@ -315,10 +288,8 @@ export const ParticleWaves: React.FC<ParticleWavesProps> = ({ scrollProgress, mo
     const speed = Math.hypot(dx, dy) / (delta || 0.016);
     lastMouse.current = { x: curX, y: curY };
 
-    // Damped speed for smooth wake decay
     mouseSpeed.current = THREE.MathUtils.lerp(mouseSpeed.current, Math.min(speed * 0.05, 1.5), delta * 5);
 
-    // Normalized screen coordinates (-1 to 1)
     const normX = (curX - 0.5) * 2;
     const normY = -(curY - 0.5) * 2;
 
@@ -363,7 +334,7 @@ export const ParticleWaves: React.FC<ParticleWavesProps> = ({ scrollProgress, mo
         uniforms={uniforms}
         transparent
         depthWrite={false}
-        blending={THREE.AdditiveBlending}
+        blending={THREE.NormalBlending}
       />
     </points>
   );

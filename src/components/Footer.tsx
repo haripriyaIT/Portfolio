@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { FiArrowUp, FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
+import { FiArrowUp, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -21,18 +21,15 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-[#030712]/95 pt-16 pb-8 border-t border-violet-500/20 overflow-hidden">
+    <footer className="relative bg-[#EAF2D7] pt-16 pb-8 border-t border-[#9C6BA8]/20 overflow-hidden">
       {/* Animated Divider */}
       <motion.div
         initial={{ scaleX: 0, opacity: 0 }}
         whileInView={{ scaleX: 1, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-violet-500/40 to-transparent"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#855092]/50 to-transparent"
       />
-
-      {/* Subtle background glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-violet-500/5 rounded-full blur-[80px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-12">
@@ -43,11 +40,11 @@ const Footer = () => {
               to="home"
               smooth={true}
               duration={500}
-              className="text-2xl font-heading font-bold cursor-pointer bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent hover:from-violet-300 hover:to-cyan-300 transition-all inline-block mb-4"
+              className="text-2xl font-heading font-bold cursor-pointer bg-gradient-to-r from-[#3D1A47] via-[#6E387B] to-[#9C6BA8] bg-clip-text text-transparent transition-all inline-block mb-4"
             >
               Haripriya M.
             </Link>
-            <p className="text-muted leading-relaxed max-w-sm">
+            <p className="text-[#6F5179] leading-relaxed max-w-sm">
               AI &amp; ML Engineer &amp; Software Developer building intelligent software and machine learning solutions.
             </p>
           </div>
@@ -55,7 +52,7 @@ const Footer = () => {
           {/* Quick Navigation */}
           <div className="md:col-span-4 lg:col-span-4 flex flex-col md:items-center">
             <div>
-              <h4 className="text-text font-semibold mb-4 uppercase tracking-wider text-sm font-mono">Quick Links</h4>
+              <h4 className="text-[#3D1A47] font-semibold mb-4 uppercase tracking-wider text-sm font-mono">Quick Links</h4>
               <ul className="space-y-3">
                 {navLinks.map((link) => (
                   <li key={link.name}>
@@ -63,7 +60,7 @@ const Footer = () => {
                       to={link.to}
                       smooth={true}
                       duration={500}
-                      className="text-muted hover:text-violet-400 transition-colors cursor-pointer text-sm font-medium"
+                      className="text-[#6F5179] hover:text-[#3D1A47] transition-colors cursor-pointer text-sm font-medium"
                     >
                       {link.name}
                     </Link>
@@ -76,7 +73,7 @@ const Footer = () => {
           {/* Socials & Back to top */}
           <div className="md:col-span-3 lg:col-span-4 flex flex-col md:items-end justify-between">
             <div className="mb-8 md:mb-0">
-              <h4 className="text-text font-semibold mb-4 uppercase tracking-wider text-sm font-mono md:text-right">Connect</h4>
+              <h4 className="text-[#3D1A47] font-semibold mb-4 uppercase tracking-wider text-sm font-mono md:text-right">Connect</h4>
               <div className="flex gap-4">
                 {socialLinks.map((social, idx) => (
                   <a
@@ -85,7 +82,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={social.label}
-                    className="p-2.5 bg-violet-500/10 border border-violet-500/20 rounded-lg text-muted hover:text-violet-400 hover:border-violet-400/50 hover:bg-violet-500/20 transition-all"
+                    className="p-2.5 bg-white/80 border border-[#9C6BA8]/25 rounded-lg text-[#6E387B] hover:text-white hover:border-[#855092] hover:bg-[#855092] transition-all cursor-pointer shadow-sm"
                   >
                     {social.icon}
                   </a>
@@ -96,8 +93,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-violet-500/15 gap-4">
-          <p className="text-muted text-sm font-medium text-center md:text-left">
+        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-[#9C6BA8]/20 gap-4">
+          <p className="text-[#6F5179] text-sm font-medium text-center md:text-left">
             &copy; {currentYear} Haripriya Manickam. All rights reserved.
           </p>
 
@@ -105,10 +102,10 @@ const Footer = () => {
             to="home"
             smooth={true}
             duration={800}
-            className="flex items-center gap-2 px-4 py-2 glass border border-violet-500/20 rounded-full text-muted hover:text-text hover:border-violet-400/40 transition-all cursor-pointer text-sm font-medium group"
+            className="flex items-center gap-2 px-4 py-2 bg-white/80 border border-[#9C6BA8]/30 rounded-full text-[#6E387B] hover:text-[#3D1A47] hover:border-[#855092] hover:bg-white transition-all cursor-pointer text-sm font-medium group shadow-sm"
           >
             <span>Back to Top</span>
-            <div className="p-1 bg-violet-500/10 rounded-full group-hover:bg-violet-500/20 group-hover:text-violet-400 transition-colors">
+            <div className="p-1 bg-[#9C6BA8]/15 rounded-full group-hover:bg-[#855092] group-hover:text-white transition-colors">
               <FiArrowUp size={14} className="group-hover:-translate-y-0.5 transition-transform" />
             </div>
           </Link>

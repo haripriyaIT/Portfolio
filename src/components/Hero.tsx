@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { FiArrowRight, FiDownload, FiMail } from 'react-icons/fi';
@@ -12,22 +12,20 @@ const Hero = () => {
     offset: ['start start', 'end start'],
   });
 
-  // Subtle 3D depth scroll — content moves up more slowly than scroll
   const contentY   = useTransform(scrollYProgress, [0, 1], [0, -60]);
   const illustY    = useTransform(scrollYProgress, [0, 1], [0, -30]);
   const panelScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.97]);
-  const panelBlur  = useTransform(scrollYProgress, [0, 0.8], [0, 4]);
 
   return (
     <section
       ref={sectionRef}
       id="home"
       className="relative min-h-screen flex items-center pt-20 overflow-hidden"
-      style={{ background: 'transparent' }} // QuantumCanvas is the background
+      style={{ background: 'transparent' }}
     >
-      {/* Extra neon orbs layered on top of the canvas for depth */}
-      <div className="absolute top-[-15%] left-[-8%] w-[420px] h-[420px] rounded-full bg-emerald-600/8 blur-[140px] pointer-events-none z-[2]" />
-      <div className="absolute bottom-[-10%] left-[25%] w-[300px] h-[300px] rounded-full bg-cyan-600/6 blur-[120px] pointer-events-none z-[2]" />
+      {/* Soft ambient mint and lavender glow */}
+      <div className="absolute top-[-15%] left-[-8%] w-[420px] h-[420px] rounded-full bg-[#B889C6]/20 blur-[140px] pointer-events-none z-[2]" />
+      <div className="absolute bottom-[-10%] left-[25%] w-[300px] h-[300px] rounded-full bg-[#9C6BA8]/15 blur-[120px] pointer-events-none z-[2]" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full relative" style={{ zIndex: 10 }}>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -41,9 +39,8 @@ const Hero = () => {
           >
             <div className="glass-strong rounded-3xl p-8 md:p-10 space-y-6 relative overflow-hidden">
               {/* Subtle inner reflection */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
-
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#9C6BA8]/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#8EB88B]/30 to-transparent" />
 
               <div className="space-y-2">
                 <motion.h1
@@ -52,11 +49,11 @@ const Hero = () => {
                   transition={{ duration: 0.8, delay: 0.25, ease: 'easeOut' }}
                   className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-tight"
                 >
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-200 to-cyan-300">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D1A47] via-[#572962] to-[#6E387B]">
                     Building Intelligent Software with
                   </span>{' '}
                   <br className="hidden md:block" />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 glow-text-violet">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#855092] to-[#9C6BA8] glow-text-violet">
                     AI &amp; Machine Learning.
                   </span>
                 </motion.h1>
@@ -67,15 +64,14 @@ const Hero = () => {
                   transition={{ duration: 0.8, delay: 0.45 }}
                   className="pt-4 pb-2"
                 >
-                  <h2 className="text-2xl md:text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-300 to-teal-400">
+                  <h2 className="text-2xl md:text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6E387B] via-[#855092] to-[#9C6BA8]">
                     AI &amp; ML Engineer &amp; Software Developer
                   </h2>
-                  <h3 className="text-base text-emerald-300/90 font-mono font-medium mt-1 tracking-wide">
+                  <h3 className="text-base text-[#6F5179] font-mono font-semibold mt-1 tracking-wide">
                     B.Tech IT &bull; K.S.R. College of Engineering (8.38 CGPA)
                   </h3>
                 </motion.div>
               </div>
-
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -88,7 +84,7 @@ const Hero = () => {
                     to="projects"
                     smooth={true}
                     duration={500}
-                    className="group px-6 py-3 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-600 hover:from-emerald-400 hover:to-cyan-500 text-black font-medium cursor-pointer flex items-center space-x-2 shadow-[0_0_25px_rgba(0,200,150,0.4)] hover:shadow-[0_0_40px_rgba(0,229,255,0.6)] transition-all duration-300"
+                    className="group px-6 py-3 rounded-lg bg-[#855092] hover:bg-[#6E387B] text-white font-medium cursor-pointer flex items-center space-x-2 shadow-[0_4px_20px_rgba(133,80,146,0.35)] hover:shadow-[0_6px_25px_rgba(110,56,123,0.45)] transition-all duration-300"
                   >
                     <span>View Projects</span>
                     <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
@@ -98,7 +94,7 @@ const Hero = () => {
                   <a
                     href="/Haripriya_Resume.pdf"
                     download="Haripriya_Resume.pdf"
-                    className="px-6 py-3 rounded-lg glass border border-emerald-500/40 text-text font-medium hover:border-emerald-400/70 hover:bg-emerald-500/10 transition-all flex items-center space-x-2"
+                    className="px-6 py-3 rounded-lg glass border border-[#9C6BA8]/35 text-[#3D1A47] font-medium hover:border-[#855092] hover:bg-white transition-all flex items-center space-x-2 shadow-sm"
                   >
                     <FiDownload />
                     <span>Download Resume</span>
@@ -109,7 +105,7 @@ const Hero = () => {
                     to="contact"
                     smooth={true}
                     duration={500}
-                    className="px-6 py-3 rounded-lg bg-transparent border border-transparent text-muted font-medium hover:text-text transition-colors cursor-pointer flex items-center space-x-2 hover:bg-emerald-500/5"
+                    className="px-6 py-3 rounded-lg bg-transparent border border-transparent text-[#6F5179] font-medium hover:text-[#3D1A47] transition-colors cursor-pointer flex items-center space-x-2 hover:bg-[#9C6BA8]/10"
                   >
                     <FiMail />
                     <span>Contact Me</span>
@@ -127,9 +123,9 @@ const Hero = () => {
             style={{ y: illustY }}
             className="relative flex flex-col items-center justify-center"
           >
-            {/* Ambient neon aura */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-600/30 via-cyan-500/20 to-teal-600/25 rounded-3xl blur-[80px] -z-10" />
-            <div className="absolute -inset-4 bg-gradient-to-bl from-emerald-500/15 to-transparent rounded-3xl blur-[50px] -z-10" />
+            {/* Ambient aura */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#9C6BA8]/20 via-[#B889C6]/15 to-transparent rounded-3xl blur-[70px] -z-10" />
+            <div className="absolute -inset-4 bg-gradient-to-bl from-[#8EB88B]/20 to-transparent rounded-3xl blur-[50px] -z-10" />
 
             {/* Name label above picture */}
             <div className="w-full max-w-sm md:max-w-md px-2 mb-3 flex flex-col items-center text-center">
@@ -140,18 +136,17 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Futuristic Glass Portrait Frame */}
+            {/* Glass Portrait Frame */}
             <motion.div
               animate={{ y: [-8, 8, -8] }}
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-              className="relative w-[19.2rem] md:w-[21.6rem] rounded-full p-3 glass-strong border border-emerald-500/40 shadow-[0_0_50px_rgba(0,200,150,0.3)] glass-panel-3d group"
+              className="relative w-[19.2rem] md:w-[21.6rem] rounded-full p-3 glass-strong border border-[#9C6BA8]/35 shadow-[0_15px_40px_rgba(110,56,123,0.12)] glass-panel-3d group"
             >
-              <div className="relative overflow-hidden rounded-full aspect-square bg-surface/50">
+              <div className="relative overflow-hidden rounded-full aspect-square bg-[#EAF2D7]/50">
                 <img
                   src={profilePhoto}
                   alt="Haripriya Manickam - AI & Machine Learning Software Engineer"
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  style={{ filter: 'brightness(1.02) contrast(1.03)' }}
                 />
               </div>
             </motion.div>
@@ -165,16 +160,16 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#6F5179]"
         style={{ zIndex: 10 }}
       >
-        <span className="text-xs font-mono tracking-widest uppercase text-emerald-400/60">Scroll to explore</span>
+        <span className="text-xs font-mono tracking-widest uppercase text-[#855092] font-semibold">Scroll to explore</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-5 h-8 rounded-full border border-emerald-500/30 flex items-start justify-center pt-1.5"
+          className="w-5 h-8 rounded-full border border-[#9C6BA8]/40 flex items-start justify-center pt-1.5"
         >
-          <div className="w-1 h-2 rounded-full bg-emerald-400/60" />
+          <div className="w-1 h-2 rounded-full bg-[#855092]" />
         </motion.div>
       </motion.div>
     </section>

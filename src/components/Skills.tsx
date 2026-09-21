@@ -29,8 +29,8 @@ const ORBIT_RINGS: OrbitRing[] = [
     name: 'Languages & Frontend',
     radiusPx: 155,
     speed: 24,
-    ringColor: 'rgba(0, 200, 150, 0.4)',
-    glowColor: 'rgba(0, 200, 150, 0.45)',
+    ringColor: 'rgba(156, 107, 168, 0.35)',
+    glowColor: 'rgba(156, 107, 168, 0.20)',
     items: [
       {
         id: 'java',
@@ -125,8 +125,8 @@ const ORBIT_RINGS: OrbitRing[] = [
     name: 'Machine Learning & Libraries',
     radiusPx: 245,
     speed: 34,
-    ringColor: 'rgba(0, 229, 255, 0.4)',
-    glowColor: 'rgba(0, 229, 255, 0.45)',
+    ringColor: 'rgba(156, 107, 168, 0.35)',
+    glowColor: 'rgba(156, 107, 168, 0.20)',
     items: [
       {
         id: 'tensorflow',
@@ -245,8 +245,8 @@ const ORBIT_RINGS: OrbitRing[] = [
     name: 'Databases & Developer Tools',
     radiusPx: 335,
     speed: 46,
-    ringColor: 'rgba(95, 255, 224, 0.4)',
-    glowColor: 'rgba(95, 255, 224, 0.45)',
+    ringColor: 'rgba(156, 107, 168, 0.35)',
+    glowColor: 'rgba(156, 107, 168, 0.20)',
     items: [
       {
         id: 'mysql',
@@ -362,8 +362,8 @@ const ORBIT_RINGS: OrbitRing[] = [
     name: 'CS Fundamentals',
     radiusPx: 415,
     speed: 58,
-    ringColor: 'rgba(168, 85, 247, 0.35)',
-    glowColor: 'rgba(168, 85, 247, 0.45)',
+    ringColor: 'rgba(156, 107, 168, 0.35)',
+    glowColor: 'rgba(156, 107, 168, 0.20)',
     items: [
       {
         id: 'dsa',
@@ -449,13 +449,13 @@ const ORBIT_RINGS: OrbitRing[] = [
 /* ─── Category List matching the user's resume ────────────────────────────── */
 
 const RESUME_CATEGORIES = [
-  { name: 'Languages', count: '4 Skills', color: '#00E5FF', ringId: 'ring-1' },
-  { name: 'Frontend', count: '3 Skills', color: '#5FFFE0', ringId: 'ring-1' },
-  { name: 'Known Libraries', count: '6 Skills', color: '#00C896', ringId: 'ring-2' },
-  { name: 'Machine learning', count: '3 Skills', color: '#38BDF8', ringId: 'ring-2' },
-  { name: 'Databases', count: '2 Skills', color: '#2DD4BF', ringId: 'ring-3' },
-  { name: 'Developer Tools', count: '7 Skills', color: '#34D399', ringId: 'ring-3' },
-  { name: 'CS Fundamentals', count: '6 Skills', color: '#A7F3D0', ringId: 'ring-4' },
+  { name: 'Languages', count: '4 Skills', color: '#855092', ringId: 'ring-1' },
+  { name: 'Frontend', count: '3 Skills', color: '#9C6BA8', ringId: 'ring-1' },
+  { name: 'Known Libraries', count: '6 Skills', color: '#6E387B', ringId: 'ring-2' },
+  { name: 'Machine learning', count: '3 Skills', color: '#855092', ringId: 'ring-2' },
+  { name: 'Databases', count: '2 Skills', color: '#7B9849', ringId: 'ring-3' },
+  { name: 'Developer Tools', count: '7 Skills', color: '#9C6BA8', ringId: 'ring-3' },
+  { name: 'CS Fundamentals', count: '6 Skills', color: '#572962', ringId: 'ring-4' },
 ];
 
 /* ─── Main Skills Component ─────────────────────────────────────────────────── */
@@ -465,7 +465,6 @@ const Skills = () => {
   const [hoveredItemId, setHoveredItemId] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  // Filter or highlight matching items
   const isItemActive = (item: SkillItem, ringId: string) => {
     if (hoveredItemId === item.id) return true;
     if (selectedCategory && item.category.toLowerCase() === selectedCategory.toLowerCase()) return true;
@@ -474,11 +473,9 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden" style={{ background: 'rgba(3,7,18,0.85)' }}>
+    <section id="skills" className="py-24 relative overflow-hidden" style={{ background: 'rgba(234,242,215,0.75)' }}>
       {/* Ambient glowing fields */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,200,150,0.08)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,229,255,0.07)_0%,transparent_60%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(95,255,224,0.05)_0%,transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(156,107,168,0.12)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
 
@@ -490,13 +487,13 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="mb-12 text-center"
         >
-          <h2 className="text-3xl md:text-5xl font-heading font-bold text-text mb-4">
+          <h2 className="text-3xl md:text-5xl font-heading font-bold text-[#3D1A47] mb-4">
             Technical{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-teal-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6E387B] via-[#855092] to-[#9C6BA8]">
               Skills
             </span>
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-emerald-500 via-cyan-400 to-teal-500 rounded-full mx-auto" />
+          <div className="h-1 w-24 bg-gradient-to-r from-[#855092] to-[#9C6BA8] rounded-full mx-auto" />
         </motion.div>
 
         {/* Category Filter Pills */}
@@ -505,8 +502,8 @@ const Skills = () => {
             onClick={() => { setSelectedCategory(null); setHoveredRingId(null); }}
             className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all cursor-pointer ${
               selectedCategory === null
-                ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-black shadow-[0_0_15px_rgba(0,200,150,0.4)]'
-                : 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 hover:text-white hover:bg-emerald-500/20'
+                ? 'bg-[#855092] text-white shadow-[0_2px_12px_rgba(133,80,146,0.35)]'
+                : 'bg-white/80 border border-[#9C6BA8]/25 text-[#6F5179] hover:text-[#3D1A47] hover:bg-white'
             }`}
           >
             All Skills (31)
@@ -522,13 +519,9 @@ const Skills = () => {
                 }}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all cursor-pointer border ${
                   isCatActive
-                    ? 'text-white shadow-[0_0_18px_rgba(139,92,246,0.5)]'
-                    : 'bg-emerald-500/10 border-emerald-500/20 text-emerald-300/80 hover:text-white hover:bg-emerald-500/20'
+                    ? 'bg-[#855092] border-[#855092] text-white shadow-[0_2px_12px_rgba(133,80,146,0.35)]'
+                    : 'bg-white/80 border-[#9C6BA8]/25 text-[#6F5179] hover:text-[#3D1A47] hover:bg-white'
                 }`}
-                style={{
-                  borderColor: isCatActive ? cat.color : undefined,
-                  background: isCatActive ? `${cat.color}25` : undefined,
-                }}
               >
                 {cat.name}
               </button>
@@ -564,31 +557,29 @@ const Skills = () => {
                       left: '50%',
                       marginTop: -orbit.radiusPx,
                       marginLeft: -orbit.radiusPx,
-                      border: `1.5px dashed ${isHovered ? orbit.ringColor.replace('0.35', '0.9') : orbit.ringColor}`,
+                      border: `1.5px dashed ${isHovered ? '#855092' : orbit.ringColor}`,
                       boxShadow: isHovered
-                        ? `0 0 40px ${orbit.glowColor}, inset 0 0 25px ${orbit.glowColor}`
-                        : `0 0 12px ${orbit.glowColor}`,
+                        ? '0 0 25px rgba(156,107,168,0.25), inset 0 0 15px rgba(156,107,168,0.12)'
+                        : 'none',
                     }}
                   />
                 );
               })}
 
-              {/* Central Glowing Quantum Core */}
+              {/* Central Glowing Core */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
                 <motion.div
-                  animate={{ scale: [1, 1.08, 1], opacity: [0.9, 1, 0.9] }}
+                  animate={{ scale: [1, 1.05, 1], opacity: [0.95, 1, 0.95] }}
                   transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="w-24 h-24 rounded-full flex flex-col items-center justify-center"
+                  className="w-24 h-24 rounded-full flex flex-col items-center justify-center border-2 border-white shadow-[0_8px_30px_rgba(110,56,123,0.25)]"
                   style={{
-                    background: 'radial-gradient(circle, rgba(0,200,150,0.95) 0%, rgba(0,184,130,0.7) 50%, rgba(3,7,18,0.9) 100%)',
-                    boxShadow: '0 0 45px rgba(0,200,150,0.9), 0 0 90px rgba(0,229,255,0.4)',
-                    border: '1.5px solid rgba(255,255,255,0.3)',
+                    background: 'radial-gradient(circle, #B889C6 0%, #9C6BA8 60%, #6E387B 100%)',
                   }}
                 >
-                  <span className="text-white text-xs font-mono font-black tracking-widest text-center leading-none">
+                  <span className="text-white text-xs font-mono font-black tracking-widest text-center leading-none drop-shadow">
                     AI
                   </span>
-                  <span className="text-emerald-300 text-[10px] font-mono font-bold tracking-widest mt-0.5">
+                  <span className="text-[#F3EAF6] text-[10px] font-mono font-bold tracking-widest mt-0.5 drop-shadow">
                     CORE
                   </span>
                 </motion.div>
@@ -616,7 +607,6 @@ const Skills = () => {
                       pointerEvents: 'none',
                     }}
                   >
-                    {/* Items distributed evenly along 360° circumference */}
                     {orbit.items.map((item, idx) => {
                       const totalItems = orbit.items.length;
                       const angleRad = (idx * 2 * Math.PI) / totalItems;
@@ -643,7 +633,6 @@ const Skills = () => {
                             setHoveredItemId(null);
                           }}
                         >
-                          {/* Counter-rotation to keep icons upright */}
                           <div
                             style={{
                               animation: `orbit-revolve-counter ${orbit.speed}s linear infinite`,
@@ -654,11 +643,11 @@ const Skills = () => {
                               whileHover={{ scale: 1.25 }}
                               className="relative flex items-center justify-center w-11 h-11 rounded-full border-2 backdrop-blur-md transition-all duration-300"
                               style={{
-                                background: `radial-gradient(circle at 35% 35%, ${item.color}33, rgba(10,22,40,0.95))`,
-                                borderColor: isHighlighted ? item.color : `${item.color}77`,
+                                background: isHighlighted ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.82)',
+                                borderColor: isHighlighted ? '#855092' : 'rgba(156, 107, 168, 0.35)',
                                 boxShadow: isHighlighted
-                                  ? `0 0 25px ${item.color}, 0 0 12px ${item.color}`
-                                  : `0 0 10px ${item.color}33`,
+                                  ? '0 6px 20px rgba(110, 56, 123, 0.25)'
+                                  : '0 3px 10px rgba(110, 56, 123, 0.08)',
                               }}
                             >
                               <div className="flex items-center justify-center pointer-events-none">
@@ -671,15 +660,13 @@ const Skills = () => {
                               <motion.div
                                 initial={{ opacity: 0, y: 6, scale: 0.9 }}
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                                className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold text-white z-50 pointer-events-none"
+                                className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold text-white z-50 pointer-events-none border border-[#855092]/40 shadow-lg"
                                 style={{
-                                  background: `linear-gradient(135deg, ${item.color}33, rgba(10,22,40,0.98))`,
-                                  border: `1.5px solid ${item.color}`,
-                                  boxShadow: `0 0 20px ${item.color}66`,
+                                  background: '#4A2055',
                                 }}
                               >
                                 <p className="font-heading font-bold text-white text-xs">{item.label}</p>
-                                <p className="text-[10px] text-emerald-200/80 font-mono tracking-wide uppercase">{item.category}</p>
+                                <p className="text-[10px] text-[#E6D2EC] font-mono tracking-wide uppercase">{item.category}</p>
                               </motion.div>
                             )}
                           </div>
@@ -700,19 +687,18 @@ const Skills = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="flex flex-col gap-4 w-full max-w-sm"
           >
-            <div className="p-4 rounded-2xl glass neon-border-violet">
-              <h3 className="text-base font-heading font-bold text-text mb-1 flex items-center justify-between">
+            <div className="p-5 rounded-2xl glass border border-[#9C6BA8]/25 shadow-sm">
+              <h3 className="text-base font-heading font-bold text-[#3D1A47] mb-1 flex items-center justify-between">
                 <span>Technical Skills Overview</span>
-                <span className="text-xs font-mono text-emerald-400">7 Domains</span>
+                <span className="text-xs font-mono text-[#855092] font-semibold">7 Domains</span>
               </h3>
-              <p className="text-xs text-muted mb-4 font-mono">
+              <p className="text-xs text-[#6F5179] mb-4 font-mono">
                 Click any category or hover orbit nodes to highlight
               </p>
 
               <div className="space-y-3">
                 {RESUME_CATEGORIES.map((cat) => {
                   const isCatSelected = selectedCategory === cat.name;
-                  // Gather all skills under this category
                   const allSkillsInCategory = ORBIT_RINGS.flatMap((r) => r.items).filter(
                     (i) => i.category.toLowerCase() === cat.name.toLowerCase()
                   );
@@ -728,21 +714,21 @@ const Skills = () => {
                       onMouseLeave={() => setHoveredRingId(null)}
                       className={`p-3 rounded-xl border transition-all duration-300 cursor-pointer ${
                         isCatSelected
-                          ? 'bg-emerald-500/20 border-emerald-400 shadow-[0_0_20px_rgba(0,200,150,0.3)]'
-                          : 'bg-surface/60 border-emerald-500/20 hover:border-emerald-400/50 hover:bg-emerald-500/10'
+                          ? 'bg-[#9C6BA8]/18 border-[#855092] shadow-md'
+                          : 'bg-white/70 border-[#9C6BA8]/20 hover:border-[#855092]/50 hover:bg-white'
                       }`}
                     >
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-2.5">
                           <span
                             className="w-2.5 h-2.5 rounded-full"
-                            style={{ background: cat.color, boxShadow: `0 0 8px ${cat.color}` }}
+                            style={{ background: cat.color, boxShadow: `0 0 6px ${cat.color}66` }}
                           />
-                          <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-text">
+                          <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-[#3D1A47]">
                             {cat.name}
                           </h4>
                         </div>
-                        <span className="text-[11px] font-mono text-emerald-300/70">
+                        <span className="text-[11px] font-mono text-[#6F5179] font-medium">
                           {cat.count}
                         </span>
                       </div>
@@ -751,11 +737,7 @@ const Skills = () => {
                         {allSkillsInCategory.map((item) => (
                           <span
                             key={item.id}
-                            className="px-2 py-0.5 rounded-md text-[11px] font-medium text-white/80 border"
-                            style={{
-                              background: hoveredItemId === item.id || isCatSelected ? `${item.color}33` : `${item.color}15`,
-                              borderColor: hoveredItemId === item.id || isCatSelected ? item.color : `${item.color}40`,
-                            }}
+                            className="px-2 py-0.5 rounded-md text-[11px] font-medium text-[#4A2055] border border-[#9C6BA8]/20 bg-white/90"
                           >
                             {item.label}
                           </span>
@@ -767,8 +749,8 @@ const Skills = () => {
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-emerald-950/20 border border-emerald-500/20 text-center">
-              <p className="text-xs text-emerald-300/70 font-mono">
+            <div className="p-3 rounded-xl bg-white/70 border border-[#9C6BA8]/20 text-center">
+              <p className="text-xs text-[#6F5179] font-mono font-medium">
                 ✦ 31 skills distributed across 4 full-revolving quantum orbit tracks
               </p>
             </div>

@@ -10,13 +10,13 @@ const Home = lazy(() => import('./pages/Home'));
 const ProjectDetails = lazy(() => import('./pages/ProjectDetails'));
 
 const LoadingFallback = () => (
-  <div className="min-h-screen bg-background flex flex-col items-center justify-center">
+  <div className="min-h-screen bg-[#EAF2D7] flex flex-col items-center justify-center">
     <div className="relative w-16 h-16">
-      <div className="absolute inset-0 rounded-full border-2 border-violet-500/30 border-t-violet-500 animate-spin" />
-      <div className="absolute inset-2 rounded-full border-2 border-cyan-500/20 border-t-cyan-400 animate-spin" style={{ animationDirection: 'reverse', animationDuration: '0.8s' }} />
+      <div className="absolute inset-0 rounded-full border-2 border-[#9C6BA8]/30 border-t-[#855092] animate-spin" />
+      <div className="absolute inset-2 rounded-full border-2 border-[#9C6BA8]/20 border-t-[#6E387B] animate-spin" style={{ animationDirection: 'reverse', animationDuration: '0.8s' }} />
     </div>
-    <p className="mt-6 font-mono text-xs text-violet-400 tracking-[0.3em] uppercase animate-pulse">
-      Initialising Quantum Interface...
+    <p className="mt-6 font-mono text-xs text-[#855092] tracking-[0.3em] uppercase animate-pulse">
+      Initialising Interface...
     </p>
   </div>
 );

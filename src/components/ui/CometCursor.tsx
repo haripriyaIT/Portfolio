@@ -1,16 +1,16 @@
 /**
- * CometCursor — Futuristic Aurora Green × Electric Cyan trail & stardust
- * Palette: Obsidian (#030712), Emerald (#00C896), Mint (#5FFFE0), Electric Cyan (#00E5FF), Soft White (#E6FFFB)
+ * CometCursor — Frost & Bouquet Theme
+ * Palette: Bouquet Lavender (#9C6BA8), Deep Plum (#6E387B), Soft Lilac (#B889C6), Sage (#7B9849)
  */
 import React, { useEffect, useRef } from 'react';
 
-const EMERALD    = { r: 0,   g: 200, b: 150 };  // #00C896
-const MINT       = { r: 95,  g: 255, b: 224 };  // #5FFFE0
-const CYAN       = { r: 0,   g: 229, b: 255 };  // #00E5FF
-const SOFT_WHITE = { r: 230, g: 255, b: 251 };  // #E6FFFB
+const BOUQUET_LAVENDER = { r: 156, g: 107, b: 168 }; // #9C6BA8
+const DEEP_PLUM        = { r: 110, g: 56,  b: 123 }; // #6E387B
+const SOFT_LILAC       = { r: 184, g: 137, b: 198 }; // #B889C6
+const SAGE_MINT        = { r: 123, g: 152, b: 73  }; // #7B9849
 
-const TRAIL_LENGTH = 40;
-const LERP = 0.22;
+const TRAIL_LENGTH = 34;
+const LERP = 0.24;
 
 interface TrailPoint {
   x: number;
@@ -89,29 +89,28 @@ const CometCursor: React.FC = () => {
       if (idleT.current) clearTimeout(idleT.current);
       idleT.current = setTimeout(() => { active.current = false; }, 180);
 
-      // Spawn subtle aurora stardust particles along movement
       const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
-      if (dist > 12 && lastX > 0) {
-        const count = Math.min(Math.floor(dist / 14), 3);
+      if (dist > 14 && lastX > 0) {
+        const count = Math.min(Math.floor(dist / 16), 2);
         for (let k = 0; k < count; k++) {
           const t = Math.random();
-          const px = lastX + (e.clientX - lastX) * t + (Math.random() - 0.5) * 8;
-          const py = lastY + (e.clientY - lastY) * t + (Math.random() - 0.5) * 8;
-          const pCol = Math.random() < 0.4 ? CYAN : Math.random() < 0.7 ? MINT : EMERALD;
+          const px = lastX + (e.clientX - lastX) * t + (Math.random() - 0.5) * 6;
+          const py = lastY + (e.clientY - lastY) * t + (Math.random() - 0.5) * 6;
+          const pCol = Math.random() < 0.5 ? BOUQUET_LAVENDER : Math.random() < 0.8 ? SOFT_LILAC : SAGE_MINT;
 
           sparks.current.push({
             x: px,
             y: py,
-            vx: (Math.random() - 0.5) * 1.6,
-            vy: (Math.random() - 0.5) * 1.6 - 0.4, // gentle upward cosmic drift
+            vx: (Math.random() - 0.5) * 1.4,
+            vy: (Math.random() - 0.5) * 1.4 - 0.3,
             size: Math.random() * 2.2 + 0.8,
             alpha: Math.random() * 0.7 + 0.3,
             color: pCol,
             decay: Math.random() * 0.025 + 0.02,
           });
         }
-        if (sparks.current.length > 45) {
-          sparks.current.splice(0, sparks.current.length - 45);
+        if (sparks.current.length > 40) {
+          sparks.current.splice(0, sparks.current.length - 40);
         }
       }
       lastX = e.clientX;
@@ -119,28 +118,26 @@ const CometCursor: React.FC = () => {
     };
     window.addEventListener('mousemove', onMove, { passive: true });
 
-    // Interactive aurora pulse on click
     const onClick = (e: MouseEvent) => {
       ripples.current.push({
         x: e.clientX,
         y: e.clientY,
         radius: 4,
         maxRadius: 36,
-        alpha: 0.8,
+        alpha: 0.7,
       });
 
-      // Extra spark burst
-      for (let i = 0; i < 8; i++) {
-        const angle = (i / 8) * Math.PI * 2 + Math.random() * 0.4;
-        const spd = Math.random() * 2.5 + 1.2;
+      for (let i = 0; i < 6; i++) {
+        const angle = (i / 6) * Math.PI * 2 + Math.random() * 0.4;
+        const spd = Math.random() * 2.2 + 1.0;
         sparks.current.push({
           x: e.clientX,
           y: e.clientY,
           vx: Math.cos(angle) * spd,
           vy: Math.sin(angle) * spd,
-          size: Math.random() * 2.5 + 1.2,
-          alpha: 1,
-          color: i % 2 === 0 ? CYAN : MINT,
+          size: Math.random() * 2.2 + 1.0,
+          alpha: 0.9,
+          color: i % 2 === 0 ? BOUQUET_LAVENDER : SAGE_MINT,
           decay: 0.035,
         });
       }
@@ -151,7 +148,6 @@ const CometCursor: React.FC = () => {
       rafRef.current = requestAnimationFrame(draw);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Lerp comet head toward mouse
       const prevX = comet.current.x;
       const prevY = comet.current.y;
       comet.current.x += (mouse.current.x - comet.current.x) * LERP;
@@ -163,13 +159,12 @@ const CometCursor: React.FC = () => {
       );
       const angle = Math.atan2(comet.current.y - prevY, comet.current.x - prevX);
 
-      // Add trail point
       if (active.current || lag > 0.6) {
         trail.current.unshift({
           x: comet.current.x,
           y: comet.current.y,
           opacity: 1,
-          size: Math.min(2.0 + lag * 0.06, 4.5),
+          size: Math.min(2.0 + lag * 0.06, 4.2),
           angle,
         });
         if (trail.current.length > TRAIL_LENGTH) {
@@ -177,15 +172,14 @@ const CometCursor: React.FC = () => {
         }
       }
 
-      // Fade trail
       for (const pt of trail.current) {
         pt.opacity *= 0.90;
       }
 
-      // ── 1. Draw Click Ripples ──
+      // 1. Draw Ripples
       for (let r = ripples.current.length - 1; r >= 0; r--) {
         const rp = ripples.current[r];
-        rp.radius += 1.8;
+        rp.radius += 1.6;
         rp.alpha *= 0.92;
 
         if (rp.alpha < 0.02 || rp.radius > rp.maxRadius) {
@@ -196,17 +190,13 @@ const CometCursor: React.FC = () => {
         ctx.save();
         ctx.beginPath();
         ctx.arc(rp.x, rp.y, rp.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(0, 229, 255, ${rp.alpha * 0.7})`;
+        ctx.strokeStyle = `rgba(156, 107, 168, ${rp.alpha * 0.7})`;
         ctx.lineWidth = 1.5;
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = 'rgba(95, 255, 224, 0.8)';
         ctx.stroke();
         ctx.restore();
       }
 
-      // ── 2. Draw Aurora Stardust Sparks ──
-      ctx.save();
-      ctx.globalCompositeOperation = 'lighter';
+      // 2. Draw Sparks
       for (let s = sparks.current.length - 1; s >= 0; s--) {
         const sp = sparks.current[s];
         sp.x += sp.vx;
@@ -222,53 +212,15 @@ const CometCursor: React.FC = () => {
 
         ctx.beginPath();
         ctx.arc(sp.x, sp.y, sp.size * sp.alpha, 0, Math.PI * 2);
-        ctx.fillStyle = cssRgba(sp.color, sp.alpha);
-        ctx.shadowBlur = 6;
-        ctx.shadowColor = cssRgba(sp.color, sp.alpha * 0.8);
+        ctx.fillStyle = cssRgba(sp.color, sp.alpha * 0.85);
         ctx.fill();
       }
-      ctx.restore();
 
-      // ── 3. Draw Aurora Ribbon Trail ──
+      // 3. Draw Ribbon Trail
       const pts = trail.current;
       const count = pts.length;
 
       if (count > 2) {
-        // Pass A: Outer Soft Aurora Glow Ribbon
-        ctx.save();
-        ctx.globalCompositeOperation = 'screen';
-        for (let i = count - 2; i >= 0; i--) {
-          const p1 = pts[i];
-          const p2 = pts[i + 1];
-          if (p1.opacity < 0.02) continue;
-
-          const t = i / (count - 1);
-          // Aurora spectrum: Soft White (head) -> Mint -> Cyan -> Emerald (tail)
-          const col = t < 0.35
-            ? lerpRGB(SOFT_WHITE, MINT, t / 0.35)
-            : t < 0.7
-            ? lerpRGB(MINT, CYAN, (t - 0.35) / 0.35)
-            : lerpRGB(CYAN, EMERALD, (t - 0.7) / 0.3);
-
-          const glowWidth = Math.max(1, p1.size * (1 - t * 0.7) * 3.8);
-          const glowAlpha = p1.opacity * (1 - t * 0.85) * 0.28;
-
-          ctx.beginPath();
-          ctx.moveTo(p1.x, p1.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = cssRgba(col, glowAlpha);
-          ctx.lineWidth = glowWidth;
-          ctx.lineCap = 'round';
-          ctx.lineJoin = 'round';
-          ctx.shadowBlur = 10;
-          ctx.shadowColor = cssRgba(CYAN, glowAlpha);
-          ctx.stroke();
-        }
-        ctx.restore();
-
-        // Pass B: Inner Radiant Laser Filament
-        ctx.save();
-        ctx.globalCompositeOperation = 'lighter';
         for (let i = count - 2; i >= 0; i--) {
           const p1 = pts[i];
           const p2 = pts[i + 1];
@@ -276,10 +228,10 @@ const CometCursor: React.FC = () => {
 
           const t = i / (count - 1);
           const col = t < 0.4
-            ? lerpRGB(SOFT_WHITE, MINT, t / 0.4)
-            : lerpRGB(MINT, CYAN, (t - 0.4) / 0.6);
+            ? lerpRGB(DEEP_PLUM, BOUQUET_LAVENDER, t / 0.4)
+            : lerpRGB(BOUQUET_LAVENDER, SOFT_LILAC, (t - 0.4) / 0.6);
 
-          const lineWidth = Math.max(0.6, p1.size * (1 - t * 0.75) * 1.2);
+          const lineWidth = Math.max(0.8, p1.size * (1 - t * 0.75) * 1.3);
           const lineAlpha = p1.opacity * (1 - t * 0.75) * 0.75;
 
           ctx.beginPath();
@@ -291,39 +243,20 @@ const CometCursor: React.FC = () => {
           ctx.lineJoin = 'round';
           ctx.stroke();
 
-          // Small pearl bead at each node
           ctx.beginPath();
-          ctx.arc(p1.x, p1.y, lineWidth * 0.9, 0, Math.PI * 2);
+          ctx.arc(p1.x, p1.y, lineWidth * 0.8, 0, Math.PI * 2);
           ctx.fillStyle = cssRgba(col, lineAlpha * 0.85);
           ctx.fill();
         }
-        ctx.restore();
       }
 
-      // ── 4. Glowing Aurora Head ──
+      // 4. Glowing Head
       if (pts.length > 0 && pts[0].opacity > 0.2) {
         const h = pts[0];
-        const headGlow = ctx.createRadialGradient(h.x, h.y, 0, h.x, h.y, 18);
-        headGlow.addColorStop(0, cssRgba(SOFT_WHITE, 0.75 * h.opacity));
-        headGlow.addColorStop(0.25, cssRgba(MINT, 0.5 * h.opacity));
-        headGlow.addColorStop(0.6, cssRgba(CYAN, 0.2 * h.opacity));
-        headGlow.addColorStop(1, cssRgba(EMERALD, 0));
-
-        ctx.save();
-        ctx.globalCompositeOperation = 'screen';
-        ctx.beginPath();
-        ctx.arc(h.x, h.y, 18, 0, Math.PI * 2);
-        ctx.fillStyle = headGlow;
-        ctx.fill();
-
-        // Core bright star
         ctx.beginPath();
         ctx.arc(h.x, h.y, 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = cssRgba(SOFT_WHITE, 0.95 * h.opacity);
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = 'rgba(0, 229, 255, 0.9)';
+        ctx.fillStyle = cssRgba(DEEP_PLUM, 0.95 * h.opacity);
         ctx.fill();
-        ctx.restore();
       }
     };
 

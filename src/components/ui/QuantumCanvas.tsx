@@ -24,30 +24,30 @@ const QuantumCanvas: React.FC<QuantumCanvasProps> = ({ scrollProgress = 0 }) => 
       className="fixed inset-0 w-full h-full pointer-events-none overflow-hidden"
       style={{
         zIndex: 0,
-        backgroundColor: '#030712',
+        backgroundColor: '#EAF2D7',
       }}
       aria-hidden="true"
     >
-      {/* ── Subdued Aurora Borealis Ambient Glow ── */}
+      {/* ── Subdued Frost Mint & Lavender Ambient Glows ── */}
       <div
-        className="absolute top-[-15%] left-[-5%] w-[55vw] h-[55vh] rounded-full blur-[180px] pointer-events-none opacity-25 animate-pulse"
+        className="absolute top-[-10%] left-[-5%] w-[60vw] h-[60vh] rounded-full blur-[160px] pointer-events-none opacity-45 animate-pulse"
         style={{
-          background: 'radial-gradient(circle, rgba(0, 200, 150, 0.14) 0%, rgba(95, 255, 224, 0.04) 50%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(184, 137, 198, 0.22) 0%, rgba(219, 232, 192, 0.15) 50%, transparent 70%)',
           animationDuration: '10s',
         }}
       />
       <div
-        className="absolute top-[25%] right-[-10%] w-[50vw] h-[50vh] rounded-full blur-[190px] pointer-events-none opacity-20 animate-pulse"
+        className="absolute top-[30%] right-[-10%] w-[55vw] h-[55vh] rounded-full blur-[170px] pointer-events-none opacity-40 animate-pulse"
         style={{
-          background: 'radial-gradient(circle, rgba(0, 229, 255, 0.12) 0%, rgba(0, 184, 130, 0.03) 50%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(156, 107, 168, 0.20) 0%, rgba(175, 201, 131, 0.12) 50%, transparent 70%)',
           animationDuration: '12s',
           animationDelay: '4s',
         }}
       />
       <div
-        className="absolute bottom-[-10%] left-[25%] w-[45vw] h-[45vh] rounded-full blur-[200px] pointer-events-none opacity-15 animate-pulse"
+        className="absolute bottom-[-10%] left-[20%] w-[50vw] h-[50vh] rounded-full blur-[180px] pointer-events-none opacity-35 animate-pulse"
         style={{
-          background: 'radial-gradient(circle, rgba(95, 255, 224, 0.10) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(230, 210, 236, 0.25) 0%, transparent 60%)',
           animationDuration: '14s',
           animationDelay: '7s',
         }}

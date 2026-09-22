@@ -7,6 +7,7 @@ import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 
 import Experience from '../components/Experience';
+import Internships from '../components/Internships';
 import CurrentFocus from '../components/CurrentFocus';
 
 import Certifications from '../components/Certifications';
@@ -51,6 +52,8 @@ const Home = () => {
         <DepthSection delay={0} depthZ={15}><Projects /></DepthSection>
 
         <DepthSection delay={0} depthZ={-5}><Experience /></DepthSection>
+
+        <DepthSection delay={0} depthZ={5}><Internships /></DepthSection>
 
         <DepthSection delay={0} depthZ={8}><CurrentFocus /></DepthSection>
 
